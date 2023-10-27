@@ -2,20 +2,19 @@ package dao;
 
 import java.util.ArrayList;
 
+import dto.OrdemServiceDTO;
 import dto.ProdutoDTO;
 
-//INTERFACE DE PRODUTO
-public interface ProdutoCrud <t> {
+public interface OSCrud <t> {
 	
 	public ArrayList<t>  getList();
 	
-	public boolean save(ProdutoDTO produtoDto) throws Exception;
+	public boolean save(OrdemServiceDTO os) throws Exception;
 	
 	public ProdutoDTO read(int id) throws Exception;
 	
-	public boolean update(ProdutoDTO produtoDto);
+	public boolean update(OrdemServiceDTO os);
 	
 	public void delect(int id);
-	
-	
+
 }
