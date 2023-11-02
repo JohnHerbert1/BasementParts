@@ -1,0 +1,5 @@
+package control;
+
+public class FuncionarioControl {//ESTA CLASS NAO SEI SE VAI EXISTIR OU SE VOU DIVIDIR EM DUAS EX A 2 TIPOS O QUE TRABALHA COMO MECANICO 
+
+}

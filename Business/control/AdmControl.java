@@ -1,6 +1,6 @@
 package control;
 
-import model.AdmModel;
+/*import model.AdmModel;
 
 public class AdmControl {
 
@@ -18,6 +18,6 @@ public class AdmControl {
 		return	istanci = new AdmControl(model);
 		}
 		return istanci;
-	}
+	}*/
 	
-}
+//}

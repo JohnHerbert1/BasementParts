@@ -7,6 +7,7 @@ public class OrdemServiceDTO {
 	private String clientName;
 	private String VendedorName;
 	private String MecanicoName; // COMO MECANICO POSSUI CARGO NAO SEI SE VAI SER UMA CLASSE SEPARADA
+	private int idOS;
 	private float price;
 	private LocalDate dataServico;
 	private int foneNumber;
@@ -68,6 +69,14 @@ public class OrdemServiceDTO {
 
 	public void setFoneNumber(int foneNumber) {
 		this.foneNumber = foneNumber;
+	}
+
+	public int getIdOS() {
+		return idOS;
+	}
+
+	public void setIdOS(int idOS) {
+		this.idOS = idOS;
 	}
 	
 	

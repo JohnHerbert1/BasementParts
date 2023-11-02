@@ -8,5 +8,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Business"/>
 	<classpathentry kind="src" path="Anotacoes"/>
+	<classpathentry kind="src" path="Enums"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
