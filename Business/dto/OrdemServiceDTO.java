@@ -2,18 +2,22 @@ package dto;
 
 import java.time.LocalDate;
 
+import Enums.Prioridade;
+import Enums.SituacaoServico;
+import Enums.TipoDeOS;
+
 public class OrdemServiceDTO {
 	
-	private String clientName;
+	private String clientNome;
 	private String VendedorName;
 	private String MecanicoName; // COMO MECANICO POSSUI CARGO NAO SEI SE VAI SER UMA CLASSE SEPARADA
 	private int idOS;
 	private float price;
 	private LocalDate dataServico;
 	private int foneNumber;
-	//private tipoDeOs; //AQUI EU ACONSELHO UM ENUM, MAS PRECISO DE MAIS EXPLICAÇAO DO QUE E ISSO
-	//private situacao; //TAMBEM ACONSELHO O USO DO ENUM
-	//private prioridade; // ENUM
+	private TipoDeOS tipoOS; //AQUI EU ACONSELHO UM ENUM, MAS PRECISO DE MAIS EXPLICAÇAO DO QUE E ISSO
+	private SituacaoServico situacao; //TAMBEM ACONSELHO O USO DO ENUM
+	private Prioridade prioridade; // ENUM
 	
 	public OrdemServiceDTO() {
 		// TODO Auto-generated constructor stub
@@ -24,11 +28,11 @@ public class OrdemServiceDTO {
 	}
 
 	public String getClientName() {
-		return clientName;
+		return clientNome;
 	}
 
 	public void setClientName(String clientName) {
-		this.clientName = clientName;
+		this.clientNome = clientName;
 	}
 
 	public String getVendedorName() {

@@ -36,14 +36,20 @@ public class FuncionarioDAO implements FuncionarioCrud <FuncionarioDTO>{
 	}
 
 	@Override
-	public boolean update() {
-		// TODO Auto-generated method stub
+	public boolean update() throws Exception  {
+		if(read(0) != null) {
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public boolean delect(int id) {
-		// TODO Auto-generated method stub
+	public boolean delect(int id) throws Exception{
+		if(read(id) != null) {
+			allFuncionarios.remove(id);
+			return true;
+		}
+		
 		return false;
 	}
 

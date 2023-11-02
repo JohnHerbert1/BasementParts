@@ -14,9 +14,9 @@ public interface FuncionarioCrud <t> {
 	
 	public FuncionarioDTO read(int id) throws Exception;
 	
-	public boolean update();
+	public boolean update() throws Exception;
 	
-	public boolean delect(int id);
+	public boolean delect(int id) throws Exception;
 	
 	
 }
