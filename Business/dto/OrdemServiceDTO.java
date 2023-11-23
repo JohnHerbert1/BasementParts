@@ -11,9 +11,10 @@ public class OrdemServiceDTO {
 	private String clientNome;
 	private String VendedorName;
 	private String MecanicoName; // COMO MECANICO POSSUI CARGO NAO SEI SE VAI SER UMA CLASSE SEPARADA
-	private int idOS;
+	private int idOS;//Nao e necessario esta na tela
 	private float price;
-	private LocalDate dataServico;
+	private LocalDate dataServico = LocalDate.now();//tambem nao e necessario
+	private ProdutoDTO produto;
 	private int foneNumber;
 	private TipoDeOS tipoOS; //AQUI EU ACONSELHO UM ENUM, MAS PRECISO DE MAIS EXPLICAÇAO DO QUE E ISSO
 	private SituacaoServico situacao; //TAMBEM ACONSELHO O USO DO ENUM

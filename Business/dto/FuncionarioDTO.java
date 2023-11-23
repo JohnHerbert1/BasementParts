@@ -1,12 +1,17 @@
 package dto;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import Enums.FuncionariosCargos;
 
 public class FuncionarioDTO {
-
+	
 	private String nome;
+	
 	private int idFuncionario;
+	
 	private double salario;
+	
 	private FuncionariosCargos cargo;
 	
 	public FuncionarioDTO() {

@@ -2,9 +2,12 @@ package dao;
 
 import java.util.ArrayList;
 
+import ProdutoExecptions.ProdutoJaExistException;
+import ProdutoExecptions.ProdutoNaoAtualizadoExecptipn;
+import ProdutoExecptions.ProdutoNaoExisteException;
 import dto.ProdutoDTO;
 
-public class ProdutoDAO implements ProdutoCrud <ProdutoDTO>{
+public class ProdutoDAO implements CrudProduto <ProdutoDTO>{
 	
 	private ArrayList<ProdutoDTO> allTheProducte = new ArrayList<>();
 	
@@ -17,8 +20,9 @@ public class ProdutoDAO implements ProdutoCrud <ProdutoDTO>{
 	@Override
 	public boolean save(ProdutoDTO produtoDto) throws Exception {
 		
-		if(read(produtoDto.getId()) != null) {//ESPESIFICANDO ESTA LINHA DE FORMA RESUMIDA E QUE SE O METODO READ RETORNA UM PRODUTO QUE DIZER QUE ELE JA EXISTE OU SEJA, O PRODUTO POSSUI ID SEMELHANTE E ESTA APTO A NAO SER SALVO NA ARRAY
-			return false;
+		//ESPESIFICANDO ESTA LINHA DE FORMA RESUMIDA E QUE SE O METODO READ RETORNA UM PRODUTO QUE DIZER QUE ELE JA EXISTE OU SEJA, O PRODUTO POSSUI ID SEMELHANTE E ESTA APTO A NAO SER SALVO NA ARRAY
+		if(read(produtoDto.getId()) != null) {
+			throw new ProdutoJaExistException();
 		}
 		
 		allTheProducte.add(produtoDto);
@@ -26,24 +30,18 @@ public class ProdutoDAO implements ProdutoCrud <ProdutoDTO>{
 	}
 
 	@Override
-	public ProdutoDTO read(int id) throws Exception {
+	
+	//AQUI ESTOU LENDO OS DADOS APARTI DO ID, PARA SER USADO ENTRE OS METODOS
+	public ProdutoDTO read(int id) throws Exception {//VALOR QUE E RETORNADO E O PRODUTO A QUAL QUERO BERIFICAR
 		for(int i = 0; i < allTheProducte.size();i++) {
 			if(allTheProducte.get(i).getId() == id) {
 				return allTheProducte.get(i);
 			}
 		}
-		return null;
+		throw new ProdutoNaoExisteException();
 	}
 
-	@Override
-	public boolean update(ProdutoDTO produtoDto) {
-		
-		if(produtoDto != null) {
-			
-		}
-		
-		return false;
-	}
+
 
 	@Override
 	public void delect(int id) {//VOU VER SE CRIO UM COD A QUAL ELE VAI SERVI PRA MODIFICAR O ID,DE UMA FORMA QUE VERIFIQUE A ARRAY E SEU ID SEJA DEACORDO COM A POSIÇÃO.
@@ -55,4 +53,19 @@ public class ProdutoDAO implements ProdutoCrud <ProdutoDTO>{
 		}
 	}
 
-}
+	@Override
+	//ESTOU MODIFICANDO APENAS DADOS INPORTANTES, REFERENTES AO PRODUTO
+	public boolean update(int id, int preco, String nome) throws Exception {
+		ProdutoDTO produto = read(id);
+		if(produto != null) {
+			produto.setNomeDoProduto(nome);
+			produto.setPrice(preco);
+			return true;
+		}
+		throw new ProdutoNaoAtualizadoExecptipn();
+		}
+		
+	}
+
+
+

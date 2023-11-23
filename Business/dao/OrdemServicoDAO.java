@@ -13,7 +13,7 @@ public class OrdemServicoDAO implements OrdemServicoCrud<OrdemServiceDTO>{
 		}
 
 	@Override
-	public Iterable<OrdemServiceDTO> getList() {
+	public ArrayList<OrdemServiceDTO> getList() {
 		return todosOsServicos;
 	}
 

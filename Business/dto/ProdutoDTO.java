@@ -11,9 +11,7 @@ public class ProdutoDTO {//NAO SEI SE O POJO SE REFERENCIARA ASSIM MAS, POR EQUA
 	private int id;
 	private String montadora;
 	private String grupo;
-	private String Fornecedor;//NAO SEI SE VOU MANTER FORNECEDOR ASSIM OU SE VAMOS CRIAR UM OBJETO A QUAL FORNECE O PRODUTO DIANTE DISSO TEMOS QUE VER QUAL VAI SER O FOCO DO APP.
-	//private ClientDTO client;//IREMOS VER COMO FAZ UMA CHAVE ESTRANGEIRA.
-	
+	private String nomeClient;
 
 	public ProdutoDTO () {
 	}
@@ -74,15 +72,14 @@ public class ProdutoDTO {//NAO SEI SE O POJO SE REFERENCIARA ASSIM MAS, POR EQUA
 		this.grupo = grupo;
 	}
 
-
-	public String getFornecedor() {
-		return Fornecedor;
+	public String getNomeClient() {
+		return nomeClient;
 	}
 
-
-	public void setFornecedor(String fornecedor) {
-		Fornecedor = fornecedor;
+	public void setNomeClient(String nomeClient) {
+		this.nomeClient = nomeClient;
 	}
+
 	
 
 	

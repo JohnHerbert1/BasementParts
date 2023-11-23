@@ -22,8 +22,6 @@ public class ProdutoControl {
 		produto.setPrice(Float.parseFloat(scan.nextLine()));
 		System.out.println("ID do Produto:");
 		produto.setId(Integer.parseInt(scan.nextLine()));
-		System.out.println("Fornecedor do Produto:");
-		produto.setFornecedor(scan.nextLine());
 		System.out.println("Montadora do Produto:");
 		produto.setMontadora(scan.nextLine());
 		productModel.serviceSave(produto);

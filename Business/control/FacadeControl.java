@@ -7,6 +7,7 @@ package control;
 
 public class FacadeControl {
 //LEMBAR QUE AINDA VAI TER AS TELAS OU SEJA CODIGO NOS BOTOS DE ATIVAÇÃO CLASSE AINDA VAI EXITIR MAIS EM UMA AVALIACAO MELHOR;
+ 	
 	private static volatile FacadeControl facade;
 	private FuncionarioControl controleFuncionario;
 	private OrdemServicoControl OSControl;
