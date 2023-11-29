@@ -1,5 +1,9 @@
 package main;
 
+import java.io.FileNotFoundException;
+
+import com.itextpdf.text.DocumentException;
+
 import dao.Persistencia;
 import dao.ProdutoBD;
 import dao.ProdutoDAO;
@@ -27,7 +31,7 @@ public class Main {
 		 * }
 		 */
 		//Persistencia.connection();
-	
+		
 	
 	}
 

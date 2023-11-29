@@ -11,5 +11,18 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="src/lib/xstream-1.4.20.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/commons-email-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/itextpdf-5.5.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/javax.mail-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/xstream-1.4.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/xstream-benchmark-1.4.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/xstream-hibernate-1.4.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/Documents/libProjetoPOOPartyPlanner/xstream-jmh-1.4.20.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
