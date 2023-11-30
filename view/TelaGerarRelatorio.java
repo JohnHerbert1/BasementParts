@@ -9,7 +9,6 @@ public class TelaGerarRelatorio extends TelaPadrao {
     }
 
     public void adicionarBotaoGerarRelatorio() {
-    	BorderLayout borderLayout = new BorderLayout();
         JButton btnGerarRelatorio = new JButton("Gerar Relatório");
         
     }
