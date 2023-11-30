@@ -1,17 +1,16 @@
 package main;
 
-import java.io.FileNotFoundException;
-
-import com.itextpdf.text.DocumentException;
-
-import model.EnvioEmail;
-import model.GeradorDeRelatorios;
+import view.TelaPadrao;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		EnvioEmail.enviarEmail();
+		
+		/*
+		 * EnvioEmail enviar = new EnvioEmail(); enviar.enviarEmail();
+		 */
+		TelaPadrao tela = new TelaPadrao();
 		/*
 		try {
 			GeradorDeRelatorios.gerarPdf();
@@ -19,7 +18,9 @@ public class Main {
 			e.printStackTrace();
 		}
 		*/
-		
+		/*
+		 * ProdutoControl model = new ProdutoControl(); model.save();
+		 */
 	}
 
 }
