@@ -12,6 +12,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 public class GeradorDeRelatorios {
 	
 	public static void gerarPdf() throws FileNotFoundException, DocumentException {
+
 		Document doc = new Document(PageSize.A4);
 		OutputStream os = new FileOutputStream("Relatório.pdf");
 		PdfWriter.getInstance(doc, os);
@@ -20,5 +21,6 @@ public class GeradorDeRelatorios {
 		Paragraph pg = new Paragraph("Adicionei um parágrafo");
 		doc.add(pg);
 		doc.close();
+		
 	}	
 }

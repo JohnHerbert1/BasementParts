@@ -10,7 +10,7 @@ public class EnvioEmail {
         	email.setDebug(true);
             email.setHostName("smtp.gmail.com");
             email.setAuthentication("projetoPOO2023.1@gmail.com", "wedc buli emsp owkl");
-            email.setSSLOnConnect(true);
+            email.setSSL(true); // ou email.setSSLOnConnect(true);
             email.addTo("projetoPOO2023.1@gmail.com");
             email.setFrom("projetoPOO2023.1@gmail.com");
             email.setSubject("Testando envio de email!!!");
