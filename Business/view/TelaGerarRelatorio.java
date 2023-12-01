@@ -5,10 +5,6 @@ import javax.swing.JLabel;
 
 public class TelaGerarRelatorio extends TelaPadrao {
 	
-	public static void main(String[] args) {
-		new TelaGerarRelatorio();
-	}
-    
     public TelaGerarRelatorio() {
     	adicionarTituloTela();
     	adicionarBotaoGerarRelatorio();
@@ -18,7 +14,7 @@ public class TelaGerarRelatorio extends TelaPadrao {
 
     private void adicionarTituloTela() {
     	JLabel lblTitulo = new JLabel("Gerar Relatório");
-    	lblTitulo.setBounds(410, 20, 100, 100);
+    	lblTitulo.setBounds(380, 20, 100, 100);
     	add(lblTitulo);
 	}
 
