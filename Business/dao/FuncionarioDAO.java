@@ -1,9 +1,6 @@
 package dao;
 
 import java.util.ArrayList;
-
-import com.thoughtworks.xstream.annotations.XStreamImplicit;
-
 import dto.FuncionarioDTO;
 
 public class FuncionarioDAO implements FuncionarioCrud <FuncionarioDTO>{

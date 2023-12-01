@@ -1,23 +1,38 @@
 package view;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class TelaGerarRelatorio extends TelaPadrao {
+	
+	public static void main(String[] args) {
+		new TelaGerarRelatorio();
+	}
     
     public TelaGerarRelatorio() {
-
+    	adicionarTituloTela();
+    	adicionarBotaoGerarRelatorio();
+    	adicionarBotaoCancelar();
+    	setVisible(true);
     }
 
-    public void adicionarBotaoGerarRelatorio() {
-    	BorderLayout borderLayout = new BorderLayout();
+    private void adicionarTituloTela() {
+    	JLabel lblTitulo = new JLabel("Gerar Relatório");
+    	lblTitulo.setBounds(410, 20, 100, 100);
+    	add(lblTitulo);
+	}
+
+	private void adicionarBotaoGerarRelatorio() {
         JButton btnGerarRelatorio = new JButton("Gerar Relatório");
+        btnGerarRelatorio.setBounds(520, 590, 220, 90);
+        add(btnGerarRelatorio);
         
     }
 
-    public void adicionarBotaoCancelar() {
-
+    private void adicionarBotaoCancelar() {
+    	JButton btnCancelar = new JButton("Cancelar");
+    	btnCancelar.setBounds(150, 590, 220, 90);
+    	add(btnCancelar);
     }
 
 }
