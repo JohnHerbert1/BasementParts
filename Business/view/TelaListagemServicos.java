@@ -5,10 +5,6 @@ import javax.swing.JRadioButton;
 
 public class TelaListagemServicos extends TelaPadrao {
 	
-	public static void main(String[] args) {
-		new TelaListagemServicos();
-	}
-	
 	public TelaListagemServicos() {
 		adicionarLabelTitulo();
 		adicionarBotoesFiltragem();

@@ -15,7 +15,7 @@ public class TelaPadrao extends JFrame {
         setTitle("Basement Parts");
         setLayout(null);
         setResizable(false);
-        setSize(900, 850);
+        setSize(900, 800);
         addLookAndFeel();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
