@@ -1,4 +1,4 @@
-package err;
+package msg;
 
 import javax.swing.JOptionPane;
 
@@ -10,7 +10,7 @@ public class CollageMsgCompraComfirmada extends MsgCollage{
 
 	@Override
 	public void receberMsg(Object o) {
-		JOptionPane.showMessageDialog(null,o  + "Compra confirmada!!!");
+		JOptionPane.showMessageDialog(null, o  + " Compra confirmada!!!");
 	}
 
 }

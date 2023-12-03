@@ -1,7 +1,5 @@
 package dto;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-
 import Enums.FuncionariosCargos;
 
 public class FuncionarioDTO {

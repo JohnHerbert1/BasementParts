@@ -83,6 +83,38 @@ public class OrdemServiceDTO {
 	public void setIdOS(int idOS) {
 		this.idOS = idOS;
 	}
+
+	public ProdutoDTO getProduto() {
+		return produto;
+	}
+
+	public void setProduto(ProdutoDTO produto) {
+		this.produto = produto;
+	}
+
+	public TipoDeOS getTipoOS() {
+		return tipoOS;
+	}
+
+	public void setTipoOS(TipoDeOS tipoOS) {
+		this.tipoOS = tipoOS;
+	}
+
+	public SituacaoServico getSituacao() {
+		return situacao;
+	}
+
+	public void setSituacao(SituacaoServico situacao) {
+		this.situacao = situacao;
+	}
+
+	public Prioridade getPrioridade() {
+		return prioridade;
+	}
+
+	public void setPrioridade(Prioridade prioridade) {
+		this.prioridade = prioridade;
+	}
 	
 	
 	

@@ -1,7 +1,6 @@
 package dao;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import dto.AdmDTO;
 

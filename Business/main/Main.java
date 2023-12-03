@@ -1,6 +1,6 @@
 package main;
 
-import view.TelaListagemProdutos;
+import view.TelaListagemServicos;
 
 public class Main {
 	
@@ -10,8 +10,8 @@ public class Main {
 		 * EnvioEmail enviar = new EnvioEmail(); enviar.enviarEmail();
 		 */
 //		TelaPadrao tela = new TelaPadrao();
-//		new TelaListagemServicos();
-		new TelaListagemProdutos();
+		new TelaListagemServicos();
+	//	new TelaListagemProdutos();
 		/*
 		try {
 			GeradorDeRelatorios.gerarPdf();

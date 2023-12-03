@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+
 import dto.FuncionarioDTO;
 
 public class FuncionarioDAO implements FuncionarioCrud <FuncionarioDTO>{

@@ -1,4 +1,4 @@
-package err;
+package msg;
 
 public abstract class MsgCollage {
 	
@@ -12,6 +12,6 @@ public abstract class MsgCollage {
     	mediator.enviarMsg(this);
     }
     
-    public abstract void receberMsg(Object objectMsg);
+    public abstract void receberMsg(Object objectMsg);//METODO A QUAL AS CLASS FILHAS HERDARAM PARA MANDAREM MSG 
 
 }

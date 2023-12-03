@@ -1,4 +1,4 @@
-package err;
+package msg;
 
 import javax.swing.JOptionPane;
 
@@ -10,7 +10,7 @@ public class CollageMsgSucessoEnvio extends MsgCollage {
 
 	@Override
 	public void receberMsg(Object objectMsg) {
-		JOptionPane.showMessageDialog(null, objectMsg + "Relatorio enviado com sucesso");
+		JOptionPane.showMessageDialog(null, objectMsg + " Relatorio enviado com sucesso");
 	}
 
 }

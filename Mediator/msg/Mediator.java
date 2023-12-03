@@ -1,4 +1,4 @@
-package err;
+package msg;
 
 public interface Mediator {
 
