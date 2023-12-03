@@ -4,6 +4,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JTable;
 
 public class TelaListagemServicos extends TelaPadrao {
 	
@@ -13,7 +14,15 @@ public class TelaListagemServicos extends TelaPadrao {
 		adicionarOpcoesFiltragem();
 		adicionarBotaoDetalhar();
 		adicionarTabelaServicos();
+		adicionarBotaoGerarRelatorio();
 		setVisible(true);
+	}
+
+	// Adicionar botão de gerar relatório.
+	private void adicionarBotaoGerarRelatorio() {
+		JButton btnGerarRelatorio = new JButton("Gerar Relatório");
+		btnGerarRelatorio.setBounds(150, 200, 100, 150);
+		add(btnGerarRelatorio);
 	}
 
 	// Adicionar título da tela.
@@ -46,7 +55,6 @@ public class TelaListagemServicos extends TelaPadrao {
 	
 	// Adicionar tabela de serviços.
 	private void adicionarTabelaServicos() {
-		
 	}
-
+	
 }
