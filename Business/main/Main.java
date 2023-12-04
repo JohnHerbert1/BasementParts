@@ -1,6 +1,6 @@
 package main;
 
-import view.TelaListagemServicos;
+import view.TelaListagemProdutos;
 
 public class Main {
 	
@@ -10,7 +10,7 @@ public class Main {
 		 * EnvioEmail enviar = new EnvioEmail(); enviar.enviarEmail();
 		 */
 //		TelaPadrao tela = new TelaPadrao();
-	//	new TelaListagemProdutos();
+		new TelaListagemProdutos();
 //		new TelaListagemProdutos();
 		/*
 		try {

@@ -10,10 +10,10 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="src/lib/activation-1.1.jar"/>
-	<classpathentry kind="lib" path="src/lib/commons-email-1.5.jar"/>
-	<classpathentry kind="lib" path="src/lib/itextpdf-5.5.9.jar"/>
-	<classpathentry kind="lib" path="src/lib/javax.mail-1.5.6.jar"/>
-	<classpathentry kind="lib" path="src/lib/xstream-1.4.20.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/java-workspace/BasementParts/lib/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/java-workspace/BasementParts/lib/commons-email-1.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/java-workspace/BasementParts/lib/itextpdf-5.5.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/java-workspace/BasementParts/lib/javax.mail-1.5.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Jadson/java-workspace/BasementParts/lib/xstream-1.4.20.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

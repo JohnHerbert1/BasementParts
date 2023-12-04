@@ -3,21 +3,18 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-
 import bd.OrdemServicoTabela;
 import bd.Persistencia;
 import dao.OrdemServicoDAO;
 import dto.OrdemServiceDTO;
 
 public class TelaListagemServicos extends TelaPadrao {
-	
 	
 	private DefaultTableModel modelo = new DefaultTableModel();
 	private JTable painel;
