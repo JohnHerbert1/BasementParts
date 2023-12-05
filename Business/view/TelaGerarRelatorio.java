@@ -27,7 +27,6 @@ public class TelaGerarRelatorio extends TelaPadrao {
         JButton btnGerarRelatorio = new JButton("Gerar Relatório");
         btnGerarRelatorio.setBounds(520, 590, 220, 90);
         add(btnGerarRelatorio);
-        
     }
 
 	// Adicionar botão de cancelar.
