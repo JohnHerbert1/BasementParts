@@ -1,64 +1,64 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.util.ArrayList;
-import javax.swing.JButton;
+
+import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import bd.OrdemServicoTabela;
+
 import bd.Persistencia;
-import dao.OrdemServicoDAO;
-import dto.OrdemServiceDTO;
+import bd.ProdutoTabela;
+import dao.ProdutoDAO;
+import dto.ProdutoDTO;
 
 public class TelaListagemProdutos extends TelaPadrao {
+	
 	
 	private DefaultTableModel modelo = new DefaultTableModel();
 	private JTable painel;
 	private	JScrollPane painelTabela;
-
+	
 	// Construtor que vai conter componentes da listagem de produtos.
 	public TelaListagemProdutos() {
-		adicionarTituloTela("Listagem de produtos");
-		adicionarDetalharProduto();
-		adicionarTabelaProdutos();
-		adicionarBotaoGerarRelatorio();
+		adicionarTitulo();
+		adicionarTabelaServicos();
 		setVisible(true);
 	}
 
-	// Adicionar botão de detalhar produto 
-	private void adicionarDetalharProduto() {
-		JButton btnDetalharProduto = new JButton("Detalhar");
-		btnDetalharProduto.setFont(new Font("Arial", Font.BOLD, 18));
-		btnDetalharProduto.setBounds(150, 595, 180, 80);
-		add(btnDetalharProduto);
+	// Adicionar título da tela.
+	private void adicionarTitulo() {
+		JLabel lblTitulo = new JLabel("Listagem de Produtos");
+		lblTitulo.setBounds(150, 200, 100, 250);
+		add(lblTitulo);
 	}
 	
-	// Tabela onde serão listados os produtos.
-	private void adicionarTabelaProdutos() {
+	
+	
+	private void adicionarTabelaServicos() {
 		Persistencia persistir = Persistencia.getInstanci();
-		persistir.escolherEstrategia(new OrdemServicoTabela());
-		OrdemServicoDAO servicos = (OrdemServicoDAO) persistir.recuperar();
+		persistir.escolherEstrategia(new ProdutoTabela());
+		ProdutoDAO servicos = (ProdutoDAO) persistir.recuperar();
 		
-		String[] layer = {"Id", "Nome", "Preco", "Montadora", "Grupo", "Nome do Cliente"};
-		
+		String[] layer = {"Nome Produto","Preco","id","Montadora","Grupo","Nome Client","Estado de Pagamento" };
+
+
 		modelo.setColumnIdentifiers(layer);
+
+		ArrayList<ProdutoDTO> todosOsServicos = servicos.getList();
+
 		
-		ArrayList<OrdemServiceDTO> todosOsServicos = servicos.getList();
-		
-		for (OrdemServiceDTO allServices : todosOsServicos) {
-			Object[] linha = new Object[11];
-			linha[0] = allServices.getClientName();
-			linha[1] = allServices.getVendedorName();
-			linha[2] = allServices.getMecanicoName();
-			linha[3] = allServices.getIdOS();
-			linha[4] = allServices.getPrice();
-			linha[5] = allServices.getDataServico();
-			linha[6] = allServices.getFoneNumber();
-			linha[7] = allServices.getTipoOS();
-			linha[8] = allServices.getSituacao();
-			linha[9] = allServices.getPrioridade();
+		for (ProdutoDTO allServices : todosOsServicos) {
+			Object[] linha = new Object[7];
+			linha[0] = allServices.getNomeDoProduto();
+			linha[1] = allServices.getPrice();
+			linha[2] = allServices.getId();
+			linha[3] = allServices.getMontadora();
+			linha[4] = allServices.getGrupo();
+			linha[5] = allServices.getNomeClient();
+			linha[6] = allServices.getIsPago();
+
 			
 			modelo.addRow(linha);
 		}
@@ -70,15 +70,6 @@ public class TelaListagemProdutos extends TelaPadrao {
 		painelTabela.setBounds(32, 200, 820, 300);
 		painelTabela.setBackground(Color.WHITE);
 		add(painelTabela);
-		
-	}
-	
-	// Adicionar botão de gerar relatório de produto.
-	private void adicionarBotaoGerarRelatorio() {
-		JButton btnGerarRelatorio = new JButton("Gerar Relatório");
-		btnGerarRelatorio.setFont(new Font("Arial", Font.BOLD, 18));
-		btnGerarRelatorio.setBounds(550, 595, 180, 80);
-		add(btnGerarRelatorio);
 	}
 
 }

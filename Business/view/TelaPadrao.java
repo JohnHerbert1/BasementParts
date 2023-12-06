@@ -1,9 +1,6 @@
 package view;
 
-import java.awt.Font;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
@@ -17,13 +14,6 @@ public class TelaPadrao extends JFrame {
         addLookAndFeel();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-    }
-    
-    protected void adicionarTituloTela(String titulo) {
-    	JLabel lblTitulo = new JLabel(titulo);
-    	lblTitulo.setBounds(320, 0, 250, 110);
-		lblTitulo.setFont(new Font("Arial", Font.BOLD, 20));
-		add(lblTitulo);
     }
     
     public void addLookAndFeel() {

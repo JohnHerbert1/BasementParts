@@ -1,12 +1,14 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.awt.Font;
+
 import bd.OrdemServicoTabela;
 import bd.Persistencia;
 import dao.OrdemServicoDAO;

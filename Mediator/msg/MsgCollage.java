@@ -9,9 +9,9 @@ public abstract class MsgCollage {
     }
 	
     public void enviarMsg() {
-    	mediator.enviarMsg(this);
+    	mediator.enviarMsg(this);//METODO RESPONSAVEL POR NOTIFICAR.
     }
     
-    public abstract void receberMsg(Object objectMsg);//METODO A QUAL AS CLASS FILHAS HERDARAM PARA MANDAREM MSG 
+    public abstract void receberMsg(Object objectMsg,String dadosString);//METODO A QUAL AS CLASS FILHAS HERDARAM PARA MANDAREM MSG 
 
 }

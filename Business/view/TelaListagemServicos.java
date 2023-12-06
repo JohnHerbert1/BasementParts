@@ -3,26 +3,28 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import bd.OrdemServicoTabela;
 import bd.Persistencia;
 import dao.OrdemServicoDAO;
 import dto.OrdemServiceDTO;
-import observer.OuvinteDetalharServico;
 
 public class TelaListagemServicos extends TelaPadrao {
+	
 	
 	private DefaultTableModel modelo = new DefaultTableModel();
 	private JTable painel;
 	private	JScrollPane painelTabela;
-	
 	// Construtor com métodos que irão gerar os componentes da tela.
 	public TelaListagemServicos() {
-		adicionarTituloTela("Listagem de serviços");
+		adicionarLabelTitulo();
 		adicionarOpcoesFiltragem();
 		adicionarBotaoDetalhar();
 		adicionarTabelaServicos();
@@ -37,6 +39,13 @@ public class TelaListagemServicos extends TelaPadrao {
 		add(btnGerarRelatorio);
 	}
 
+	// Adicionar título da tela.
+	private void adicionarLabelTitulo() {
+		JLabel lblTitulo = new JLabel("Listagem de Serviços");
+		lblTitulo.setBounds(380, 20, 150, 100);
+		add(lblTitulo);
+	}
+	
 	// Adicionar opções de filtragem.
 	private void adicionarOpcoesFiltragem() {
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
@@ -55,8 +64,6 @@ public class TelaListagemServicos extends TelaPadrao {
 		JButton btnDetalharServico = new JButton("Detalhar");
 		btnDetalharServico.setBounds(40, 600, 120, 60);
 		btnDetalharServico.setFont(new Font("Arial", Font.BOLD, 18));
-		OuvinteDetalharServico ouvinteDetalharServico = new OuvinteDetalharServico(this);
-		btnDetalharServico.addActionListener(ouvinteDetalharServico);
 		add(btnDetalharServico);
 	}
 	
@@ -68,9 +75,11 @@ public class TelaListagemServicos extends TelaPadrao {
 		
 		String[] layer = {"Email Client","Caixa","Mecanico","Id","Price","Emissao","Peca comprada","TLF client","Tipo Servico","Situacao","Prioridade" };
 
+
 		modelo.setColumnIdentifiers(layer);
 
 		ArrayList<OrdemServiceDTO> todosOsServicos = servicos.getList();
+
 		
 		for (OrdemServiceDTO allServices : todosOsServicos) {
 			Object[] linha = new Object[11];
@@ -85,6 +94,7 @@ public class TelaListagemServicos extends TelaPadrao {
 			linha[8] = allServices.getSituacao();
 			linha[9] = allServices.getPrioridade();
 
+			
 			modelo.addRow(linha);
 		}
 		

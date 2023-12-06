@@ -12,7 +12,7 @@ import com.thoughtworks.xstream.security.AnyTypePermission;
 
 import dao.FuncionarioDAO;
 
-public class FuncionarioTabela implements CreatConnectionBD{
+public class FuncionarioTabela implements CreatConnectionBD {
 
 	private  XStream xstream = new XStream(new DomDriver());
 	private   File arquivo = new File("!Funcionarios.xml");

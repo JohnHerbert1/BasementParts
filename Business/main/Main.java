@@ -1,6 +1,6 @@
 package main;
 
-import view.TelaListagemFuncionarios;
+import control.ProdutoControl;
 
 public class Main {
 	
@@ -10,8 +10,8 @@ public class Main {
 		 * EnvioEmail enviar = new EnvioEmail(); enviar.enviarEmail();
 		 */
 //		TelaPadrao tela = new TelaPadrao();
-//		new TelaListagemProdutos();
-		new TelaListagemFuncionarios();
+		//new TelaListagemServicos();
+		//new TelaListagemProdutos();
 		/*
 		try {
 			GeradorDeRelatorios.gerarPdf();
@@ -22,6 +22,11 @@ public class Main {
 		/*
 		 * ProdutoControl model = new ProdutoControl(); model.save();
 		 */
+		/*
+		 * 
+		 */
+		ProdutoControl control = new ProdutoControl(); 
+		control.save();
 	}
 
 }

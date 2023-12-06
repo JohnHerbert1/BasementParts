@@ -11,7 +11,7 @@ public class OrdemServiceDTO {
 	private String clientNome;
 	private String VendedorName;
 	private String MecanicoName; // COMO MECANICO POSSUI CARGO NAO SEI SE VAI SER UMA CLASSE SEPARADA
-	private int idOS;//Nao e necessario esta na tela
+	private int idOS = 1;//Nao e necessario esta na tela
 	private float price;
 	private LocalDate dataServico = LocalDate.now();//tambem nao e necessario
 	private ProdutoDTO produto;
@@ -22,6 +22,11 @@ public class OrdemServiceDTO {
 	
 	public OrdemServiceDTO() {
 		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public int hashCode() {
+		return idOS;
 	}
 
 	public String toString() {

@@ -2,9 +2,10 @@ package dto;
 
 import java.time.LocalDate;
 
+//ESTA CLASS E PRA SER GERADA A POIS O EFETUAMENTE DA COMPRA PELO CLIENT
 public class BoletoDTO {
 
-	private String NomeCLient;
+	private String eMail;
 	private FuncionarioDTO funcionario;//FUNCIONARIO QUE FEZ O PEDIDO DA COMPRA OU DO SERVICO 
 	private float price;
 	private ProdutoDTO produto;
@@ -14,13 +15,15 @@ public class BoletoDTO {
 	
 	public BoletoDTO() {
 	}
+	
+	
 
-	public String getNomeCLient() {
-		return NomeCLient;
+	public String geteMail() {
+		return eMail;
 	}
 
-	public void setNomeCLient(String nomeCLient) {
-		NomeCLient = nomeCLient;
+	public void seteMail(String eMail) {
+		this.eMail = eMail;
 	}
 
 	public FuncionarioDTO getFuncionario() {

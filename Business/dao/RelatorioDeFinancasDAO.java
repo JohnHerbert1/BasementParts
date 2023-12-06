@@ -2,6 +2,8 @@ package dao;
 
 import java.util.ArrayList;
 
+import dto.OrdemServiceDTO;
+import dto.ProdutoDTO;
 import dto.RelatorioFinancasDTO;
 
 
@@ -34,6 +36,40 @@ public class RelatorioDeFinancasDAO implements CrudFinancasServicos<RelatorioFin
 			}
 		}
 		throw new Exception();
+	}
+	
+	public boolean saveProdutosInRelatorio(RelatorioFinancasDTO relatorio, ProdutoDTO produto) throws Exception {
+		RelatorioFinancasDTO rlt = read(relatorio);
+		if(read(rlt) == null) {
+			return false;
+		}
+		
+		//SE ISTO DE UM ERRO E SO CRIAR UMA VARIAVEL AUXILIAR
+		for(ProdutoDTO prt : rlt.getTodosOsProdutos()) {
+			if(prt.getId() == produto.getId()) {
+				return false;
+			}
+		}
+			
+		rlt.getTodosOsProdutos().add(produto);
+		return true;
+	}
+	
+	public boolean saveServicosInRelatorio(RelatorioFinancasDTO relatorio, OrdemServiceDTO ordemServicos) throws Exception {
+		RelatorioFinancasDTO rlt = read(relatorio);
+		if(read(rlt) == null) {
+			return false;
+		}
+		
+		for(OrdemServiceDTO os : rlt.getTodosServicos()) {
+			if(os.getIdOS() == ordemServicos.getIdOS()) {
+				return false;
+			}
+		}
+		
+		rlt.getTodosServicos().add(ordemServicos);
+		return true;
+		
 	}
 
 	@Override//NAO VAI EXISTIR, ACHO SEM SENTIDO TER UM DELECT RELATORIO 

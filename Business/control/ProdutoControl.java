@@ -20,8 +20,8 @@ public class ProdutoControl {
 		produto.setNomeDoProduto(scan.nextLine());
 		System.out.println("price do Produto:");
 		produto.setPrice(Float.parseFloat(scan.nextLine()));
-		System.out.println("ID do Produto:");
-		produto.setId(Integer.parseInt(scan.nextLine()));
+		//System.out.println("ID do Produto:");
+		//produto.setId(Integer.parseInt(scan.nextLine()));
 		System.out.println("Montadora do Produto:");
 		produto.setMontadora(scan.nextLine());
 		productModel.serviceSave(produto);

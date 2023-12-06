@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <dao.ProdutoDAO>
-  <allTheProducte/>
+  <allTheProducte>
+    <dto.ProdutoDTO>
+      <nomeDoProduto>pica</nomeDoProduto>
+      <price>200.0</price>
+      <id>1</id>
+      <montadora>dada</montadora>
+    </dto.ProdutoDTO>
+    <dto.ProdutoDTO>
+      <nomeDoProduto>dieId</nomeDoProduto>
+      <price>900.0</price>
+      <id>2</id>
+      <montadora>ssad</montadora>
+    </dto.ProdutoDTO>
+    <dto.ProdutoDTO>
+      <nomeDoProduto>id</nomeDoProduto>
+      <price>600.0</price>
+      <id>3</id>
+      <montadora>miraca</montadora>
+    </dto.ProdutoDTO>
+    <dto.ProdutoDTO>
+      <nomeDoProduto>pintoParker</nomeDoProduto>
+      <price>823.0</price>
+      <id>6</id>
+      <montadora>ddsaaad</montadora>
+    </dto.ProdutoDTO>
+    <dto.ProdutoDTO>
+      <nomeDoProduto>quero</nomeDoProduto>
+      <price>56565.0</price>
+      <id>12</id>
+      <montadora>klala</montadora>
+    </dto.ProdutoDTO>
+    <dto.ProdutoDTO>
+      <nomeDoProduto>piroto</nomeDoProduto>
+      <price>789632.0</price>
+      <id>24</id>
+      <montadora>dasdasd</montadora>
+    </dto.ProdutoDTO>
+  </allTheProducte>
 </dao.ProdutoDAO>

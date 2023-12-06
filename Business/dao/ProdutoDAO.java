@@ -5,9 +5,12 @@ import java.util.ArrayList;
 import ProdutoExecptions.ProdutoJaExistException;
 import ProdutoExecptions.ProdutoNaoAtualizadoExecptipn;
 import ProdutoExecptions.ProdutoNaoExisteException;
+import bd.Persistencia;
+import bd.ProdutoTabela;
 import dto.ProdutoDTO;
 
 public class ProdutoDAO implements CrudProduto <ProdutoDTO>{
+	
 	
 	private ArrayList<ProdutoDTO> allTheProducte = new ArrayList<>();
 	
@@ -38,7 +41,7 @@ public class ProdutoDAO implements CrudProduto <ProdutoDTO>{
 				return allTheProducte.get(i);
 			}
 		}
-		throw new ProdutoNaoExisteException();
+		return null;
 	}
 
 

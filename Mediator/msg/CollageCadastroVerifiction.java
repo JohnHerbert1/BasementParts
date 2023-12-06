@@ -9,8 +9,29 @@ public class CollageCadastroVerifiction extends MsgCollage {
 	}
 
 	@Override
-	public void receberMsg(Object objectMsg) {
-		JOptionPane.showMessageDialog(null, objectMsg + "O Email colocado nao e permitido, veja se tem {@} ou {.com}");
+	public void receberMsg(Object objectMsg,String dados) {
+		eMailMsg(dados);
 	}	
 	
+	
+	
+	private boolean emailValidatorP(String email){
+		
+		 String regx = "^(.+)@(.+)$";
+		 Pattern pattern = Pattern.compile(regx);
+		 Matcher matcher = pattern.matcher(email);
+		 
+      return matcher.matches();
+  }
+
+	private void eMailMsg(String email) {
+		if(emailValidatorP(email)) {
+			JOptionPane.showMessageDialog(this, "Email nao valido, veja se tem {@} ou {.com}");
+		}
+	}
+	
+	
+	
 }
+
+

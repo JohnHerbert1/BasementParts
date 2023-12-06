@@ -1,6 +1,6 @@
 package bd;
 
-public class Persistencia {
+public class Persistencia  {
 	
 	private	CreatConnectionBD tabela;
 	private static volatile Persistencia instanci;

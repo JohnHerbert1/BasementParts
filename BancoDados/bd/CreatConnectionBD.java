@@ -1,6 +1,6 @@
 package bd;
 
-public interface CreatConnectionBD {
+public interface CreatConnectionBD  {
 
 	public void creatConnection(Object element);
 	
