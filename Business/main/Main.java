@@ -1,6 +1,7 @@
 package main;
 
 import control.ProdutoControl;
+import view.TelaDetalharFuncionario;
 
 public class Main {
 	
@@ -11,6 +12,7 @@ public class Main {
 		 */
 //		TelaPadrao tela = new TelaPadrao();
 		//new TelaListagemServicos();
+		new TelaDetalharFuncionario();
 		//new TelaListagemProdutos();
 		/*
 		try {
@@ -25,8 +27,8 @@ public class Main {
 		/*
 		 * 
 		 */
-		ProdutoControl control = new ProdutoControl(); 
-		control.save();
+//		ProdutoControl control = new ProdutoControl(); 
+//		control.save();
 	}
 
 }

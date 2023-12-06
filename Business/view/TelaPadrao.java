@@ -37,5 +37,5 @@ public class TelaPadrao extends JFrame {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-}
+    }
 }

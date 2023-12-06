@@ -28,6 +28,7 @@ public class TelaListagemFuncionarios extends TelaPadrao {
 		setVisible(true);
 	}
 
+	// Adicionar botão para gerar relatório.
 	private void adicionarBotaoGerarRelatorio() {
 		JButton btnGerarRelatorio = new JButton("Gerar Relatório");
 		btnGerarRelatorio.setBounds(550, 595, 180, 80);
@@ -35,6 +36,7 @@ public class TelaListagemFuncionarios extends TelaPadrao {
 		add(btnGerarRelatorio);
 	}
 
+	// Adicionar botão para detalhar o funcionário.
 	private void adicionarBotaoDetalhar() {
 		JButton btnDetalhar = new JButton("Detalhar");
 		btnDetalhar.setBounds(150, 595, 180, 80);

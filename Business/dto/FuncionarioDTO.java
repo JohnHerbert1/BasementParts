@@ -1,7 +1,5 @@
 package dto;
 
-import com.itextpdf.awt.geom.misc.HashCode;
-
 import Enums.FuncionariosCargos;
 
 public class FuncionarioDTO {

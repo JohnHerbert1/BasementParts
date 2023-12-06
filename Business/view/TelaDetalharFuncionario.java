@@ -12,7 +12,7 @@ public class TelaDetalharFuncionario extends TelaPadrao {
 	}
 
 	private void adicionarLabelsDetalharFuncionario() {
-		JLabel lblNome = new JLabel("Nome:");
+		JLabel lblNome = new JLabel("Email:");
 		lblNome.setBounds(110, 120, 250, 110);
 		lblNome.setFont(new Font("Arial", Font.BOLD, 15));
 		add(lblNome);
@@ -20,6 +20,11 @@ public class TelaDetalharFuncionario extends TelaPadrao {
 		lblIdFuncionario.setBounds(110, 190, 250, 110);
 		lblIdFuncionario.setFont(new Font("Arial", Font.BOLD, 15));
 		add(lblIdFuncionario);
+		JLabel lblNumero = new JLabel("Número:");
+		lblNumero.setBounds(110, 260, 250, 110);
+		lblNumero.setFont(new Font("Arial", Font.BOLD, 15));
+		add(lblNumero);
+		JLabel lbl
 	}
 	
 	
