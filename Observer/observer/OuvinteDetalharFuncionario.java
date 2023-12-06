@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import view.TelaDetalharFuncionario;
 import view.TelaListagemFuncionarios;
 
 public class OuvinteDetalharFuncionario implements ActionListener {
@@ -17,7 +18,8 @@ public class OuvinteDetalharFuncionario implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(telaListagemFuncionarios, "Clicou!");
+		telaListagemFuncionarios.dispose();
+		new TelaDetalharFuncionario();
 	}
 
 }
