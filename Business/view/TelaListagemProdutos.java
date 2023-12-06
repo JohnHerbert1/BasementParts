@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -21,26 +20,18 @@ public class TelaListagemProdutos extends TelaPadrao {
 
 	// Construtor que vai conter componentes da listagem de produtos.
 	public TelaListagemProdutos() {
-		adicionarTitulo();
+		adicionarTituloTela("Listagem de produtos");
 		adicionarDetalharProduto();
 		adicionarTabelaProdutos();
 		adicionarBotaoGerarRelatorio();
 		setVisible(true);
 	}
 
-	// Adicionar título da tela.
-	private void adicionarTitulo() {
-		JLabel lblTitulo = new JLabel("Listagem de Produtos");
-		lblTitulo.setBounds(340, 0, 200, 110);
-		lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
-		add(lblTitulo);
-	}
-	
 	// Adicionar botão de detalhar produto 
 	private void adicionarDetalharProduto() {
 		JButton btnDetalharProduto = new JButton("Detalhar");
 		btnDetalharProduto.setFont(new Font("Arial", Font.BOLD, 18));
-		btnDetalharProduto.setBounds(100, 595, 180, 80);
+		btnDetalharProduto.setBounds(150, 595, 180, 80);
 		add(btnDetalharProduto);
 	}
 	
@@ -86,7 +77,7 @@ public class TelaListagemProdutos extends TelaPadrao {
 	private void adicionarBotaoGerarRelatorio() {
 		JButton btnGerarRelatorio = new JButton("Gerar Relatório");
 		btnGerarRelatorio.setFont(new Font("Arial", Font.BOLD, 18));
-		btnGerarRelatorio.setBounds(500, 595, 180, 80);
+		btnGerarRelatorio.setBounds(550, 595, 180, 80);
 		add(btnGerarRelatorio);
 	}
 

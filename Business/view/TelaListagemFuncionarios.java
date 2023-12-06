@@ -1,72 +1,56 @@
 package view;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
 import bd.OrdemServicoTabela;
 import bd.Persistencia;
 import dao.OrdemServicoDAO;
 import dto.OrdemServiceDTO;
-import observer.OuvinteDetalharServico;
+import observer.OuvinteDetalharFuncionario;
 
-public class TelaListagemServicos extends TelaPadrao {
+public class TelaListagemFuncionarios extends TelaPadrao {
 	
 	private DefaultTableModel modelo = new DefaultTableModel();
 	private JTable painel;
 	private	JScrollPane painelTabela;
 	
-	// Construtor com métodos que irão gerar os componentes da tela.
-	public TelaListagemServicos() {
-		adicionarTituloTela("Listagem de serviços");
-		adicionarOpcoesFiltragem();
-		adicionarBotaoDetalhar();
-		adicionarTabelaServicos();
+	// Construtor que agrega os componentes da tela.
+	public TelaListagemFuncionarios() {
+		adicionarTituloTela("Listagem de Funcionários");
 		adicionarBotaoGerarRelatorio();
+		adicionarBotaoDetalhar();
+		adicionarTabelaFuncionarios();
 		setVisible(true);
 	}
 
-	// Adicionar botão de gerar relatório.
 	private void adicionarBotaoGerarRelatorio() {
 		JButton btnGerarRelatorio = new JButton("Gerar Relatório");
-		btnGerarRelatorio.setBounds(150, 200, 100, 150);
+		btnGerarRelatorio.setBounds(550, 595, 180, 80);
+		btnGerarRelatorio.setFont(new Font("Arial", Font.BOLD, 18));
 		add(btnGerarRelatorio);
 	}
 
-	// Adicionar opções de filtragem.
-	private void adicionarOpcoesFiltragem() {
-		JRadioButton rdbtnTodos = new JRadioButton("Todos");
-		rdbtnTodos.setBounds(100, 70, 100, 100);
-		add(rdbtnTodos);
-		JRadioButton rdbtnFinalizados = new JRadioButton("Finalizados");
-		rdbtnFinalizados.setBounds(190, 70, 100, 100);
-		add(rdbtnFinalizados);
-		JRadioButton rdbtnData = new JRadioButton("Data");
-		rdbtnData.setBounds(315, 70, 100, 100);
-		add(rdbtnData);
-	}
-	
-	// Adicionar botão de detalhar serviço.
 	private void adicionarBotaoDetalhar() {
-		JButton btnDetalharServico = new JButton("Detalhar");
-		btnDetalharServico.setBounds(40, 600, 120, 60);
-		btnDetalharServico.setFont(new Font("Arial", Font.BOLD, 18));
-		OuvinteDetalharServico ouvinteDetalharServico = new OuvinteDetalharServico(this);
-		btnDetalharServico.addActionListener(ouvinteDetalharServico);
-		add(btnDetalharServico);
+		JButton btnDetalhar = new JButton("Detalhar");
+		btnDetalhar.setBounds(150, 595, 180, 80);
+		btnDetalhar.setFont(new Font("Arial", Font.BOLD, 18));
+		OuvinteDetalharFuncionario ouvinteDetalharFuncionario = new OuvinteDetalharFuncionario(this);
+		btnDetalhar.addActionListener(ouvinteDetalharFuncionario);
+		add(btnDetalhar);
 	}
-	
-	// Adicionar tabela de serviços.
-	private void adicionarTabelaServicos() {
+
+	// Adicionar tabela de funcionários.
+	private void adicionarTabelaFuncionarios() {
 		Persistencia persistir = Persistencia.getInstanci();
 		persistir.escolherEstrategia(new OrdemServicoTabela());
 		OrdemServicoDAO servicos = (OrdemServicoDAO) persistir.recuperar();
 		
-		String[] layer = {"Email Client","Caixa","Mecanico","Id","Price","Emissao","Peca comprada","TLF client","Tipo Servico","Situacao","Prioridade" };
+		String[] layer = {"Nome", "ID", "Salário", "Cargo"};
 
 		modelo.setColumnIdentifiers(layer);
 
@@ -84,7 +68,7 @@ public class TelaListagemServicos extends TelaPadrao {
 			linha[7] = allServices.getTipoOS();
 			linha[8] = allServices.getSituacao();
 			linha[9] = allServices.getPrioridade();
-
+			
 			modelo.addRow(linha);
 		}
 		
@@ -96,5 +80,5 @@ public class TelaListagemServicos extends TelaPadrao {
 		painelTabela.setBackground(Color.WHITE);
 		add(painelTabela);
 	}
-	
+
 }
