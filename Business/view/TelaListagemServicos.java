@@ -22,9 +22,10 @@ public class TelaListagemServicos extends TelaPadrao {
 	private DefaultTableModel modelo = new DefaultTableModel();
 	private JTable painel;
 	private	JScrollPane painelTabela;
+	
 	// Construtor com métodos que irão gerar os componentes da tela.
 	public TelaListagemServicos() {
-		adicionarLabelTitulo();
+		adicionarTituloTela("Listagem de Serviços");
 		adicionarOpcoesFiltragem();
 		adicionarBotaoDetalhar();
 		adicionarTabelaServicos();
@@ -39,13 +40,6 @@ public class TelaListagemServicos extends TelaPadrao {
 		add(btnGerarRelatorio);
 	}
 
-	// Adicionar título da tela.
-	private void adicionarLabelTitulo() {
-		JLabel lblTitulo = new JLabel("Listagem de Serviços");
-		lblTitulo.setBounds(380, 20, 150, 100);
-		add(lblTitulo);
-	}
-	
 	// Adicionar opções de filtragem.
 	private void adicionarOpcoesFiltragem() {
 		JRadioButton rdbtnTodos = new JRadioButton("Todos");
@@ -75,11 +69,9 @@ public class TelaListagemServicos extends TelaPadrao {
 		
 		String[] layer = {"Email Client","Caixa","Mecanico","Id","Price","Emissao","Peca comprada","TLF client","Tipo Servico","Situacao","Prioridade" };
 
-
 		modelo.setColumnIdentifiers(layer);
 
 		ArrayList<OrdemServiceDTO> todosOsServicos = servicos.getList();
-
 		
 		for (OrdemServiceDTO allServices : todosOsServicos) {
 			Object[] linha = new Object[11];
