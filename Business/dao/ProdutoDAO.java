@@ -2,9 +2,9 @@ package dao;
 
 import java.util.ArrayList;
 
-import ProdutoExecptions.ProdutoJaExistException;
-import ProdutoExecptions.ProdutoNaoAtualizadoExecptipn;
-import ProdutoExecptions.ProdutoNaoExisteException;
+import ProdutoExceptions.ProdutoJaExistException;
+import ProdutoExceptions.ProdutoNaoAtualizadoExecptipn;
+import ProdutoExceptions.ProdutoNaoExisteException;
 import bd.Persistencia;
 import bd.ProdutoTabela;
 import dto.ProdutoDTO;

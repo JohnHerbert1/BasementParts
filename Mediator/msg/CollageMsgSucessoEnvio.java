@@ -9,7 +9,7 @@ public class CollageMsgSucessoEnvio extends MsgCollage {
 	}
 
 	@Override
-	public void receberMsg(Object objectMsg) {
+	public void receberMsg(Object objectMsg, String msg) {
 		JOptionPane.showMessageDialog(null, objectMsg + " Relatorio enviado com sucesso");
 	}
 

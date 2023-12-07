@@ -1,4 +1,4 @@
-package ProdutoExecptions;
+package ProdutoExceptions;
 
 public class ProdutoJaExistException extends Exception{
 

@@ -3,8 +3,11 @@ package view;
 public class TelaDetalharProduto extends TelaPadrao {
 	
 	public TelaDetalharProduto() {
-		adicionar
+		adicionarLabelsDetalharProduto();
 		setVisible(true);
+	}
+
+	private void adicionarLabelsDetalharProduto() {
 	}
 
 }

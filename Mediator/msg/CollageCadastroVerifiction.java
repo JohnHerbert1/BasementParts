@@ -29,7 +29,7 @@ public class CollageCadastroVerifiction extends MsgCollage {
 
 	private void eMailMsg(String email) {
 		if(emailValidatorP(email)) {
-			JOptionPane.showMessageDialog(this, "Email nao valido, veja se tem {@} ou {.com}");
+			JOptionPane.showMessageDialog(null, "Email nao valido, veja se tem {@} ou {.com}");
 		}
 	}
 	

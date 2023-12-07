@@ -9,7 +9,7 @@ public class CollageMsgCompraComfirmada extends MsgCollage{
 	}
 
 	@Override
-	public void receberMsg(Object o) {
+	public void receberMsg(Object o, String msg) {
 		JOptionPane.showMessageDialog(null, o  + " Compra confirmada!!!");
 	}
 

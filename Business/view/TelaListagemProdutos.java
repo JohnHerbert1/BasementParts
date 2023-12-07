@@ -22,20 +22,11 @@ public class TelaListagemProdutos extends TelaPadrao {
 	
 	// Construtor que vai conter componentes da listagem de produtos.
 	public TelaListagemProdutos() {
-		adicionarTitulo();
+		adicionarTituloTela("Listagem de Produtos");
 		adicionarTabelaServicos();
 		setVisible(true);
 	}
 
-	// Adicionar título da tela.
-	private void adicionarTitulo() {
-		JLabel lblTitulo = new JLabel("Listagem de Produtos");
-		lblTitulo.setBounds(150, 200, 100, 250);
-		add(lblTitulo);
-	}
-	
-	
-	
 	private void adicionarTabelaServicos() {
 		Persistencia persistir = Persistencia.getInstanci();
 		persistir.escolherEstrategia(new ProdutoTabela());

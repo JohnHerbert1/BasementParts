@@ -22,16 +22,16 @@ public class CollageSucessoPDF extends MsgCollage {
 			retorno = false;
 			break;
 		case "TERMINADO":
-			retorno true;
+			retorno = true;
 		}
 		return retorno;
 	}
 	
 	private void isAptitoMsg(String efetivo) {
 		if(isAptito(efetivo)) {
-			JOptionPane.showMessageDialog(this, "PDF gerado com Sucesso");
+			JOptionPane.showMessageDialog(null, "PDF gerado com Sucesso");
 		}else {
-			JOptionPane.showMessageDialog(this, "PDF nao pode ser Criado ou ter seus dados compra adicionados,pos a compras em andamento");
+			JOptionPane.showMessageDialog(null, "PDF nao pode ser Criado ou ter seus dados compra adicionados,pos a compras em andamento");
 		}
 	}
 }

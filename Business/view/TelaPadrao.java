@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ public class TelaPadrao extends JFrame {
         setLayout(null);
         setResizable(false);
         setSize(900, 800);
+        setBackground(Color.BLUE);
         addLookAndFeel();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
