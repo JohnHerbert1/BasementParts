@@ -1,6 +1,6 @@
 package main;
 
-import view.TelaListagemFuncionarios;
+import view.TelaDetalharServico;
 
 public class Main {
 	
@@ -13,7 +13,9 @@ public class Main {
 //		new TelaListagemServicos();
 //		new TelaDetalharFuncionario();
 //		new TelaListagemProdutos();
-		new TelaListagemFuncionarios();
+//		new TelaListagemFuncionarios();
+//		new TelaDetalharProduto();
+		new TelaDetalharServico();
 		/*
 		try {
 			GeradorDeRelatorios.gerarPdf();
