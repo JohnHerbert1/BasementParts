@@ -3,7 +3,7 @@
 	<classpathentry excluding="lib/" kind="src" path="src"/>
 	<classpathentry kind="src" path="Business"/>
 	<classpathentry kind="src" path="Enums"/>
-	<classpathentry kind="src" path="Execptions"/>
+	<classpathentry kind="src" path="Exceptions"/>
 	<classpathentry kind="src" path="BancoDados"/>
 	<classpathentry kind="src" path="Observer"/>
 	<classpathentry kind="src" path="Mediator"/>
