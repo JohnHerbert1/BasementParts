@@ -1,9 +1,12 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -34,6 +37,7 @@ public class TelaCadastroADM extends TelaPadrao{
 		criarImagen();
 		botao();
 		ouvinteCadastrar();
+		ouvinteEmail();
 		setVisible(true);
 	}
 	
@@ -108,12 +112,37 @@ public class TelaCadastroADM extends TelaPadrao{
 		
 		botaoCadastrar.addActionListener(new ActionListener() {
 			
+			String textEmail = email.getText();
+			String textSenha= senha.getText();
+			
 			public void actionPerformed(ActionEvent e) {
 				
-				if(email.getText()== null && senha.getText()== null) {
+				if(textEmail.equals("") && textSenha.equals("")) {
 					
-					//JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", ERROR);
-					System.out.println("erro");
+					JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", ERROR);
+						
+					//System.out.println(email);
+				}
+			}
+		});
+	}
+	
+	public void ouvinteEmail() {
+		
+		email.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				email.setForeground(Color.BLACK);
+				email.setText("");
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				
+				if(email.getText().equals("")) {
+					
 				}
 			}
 		});

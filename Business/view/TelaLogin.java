@@ -12,6 +12,8 @@ import javax.swing.JTextField;
 
 public class TelaLogin extends TelaPadrao{
 	
+	private JButton botaoRecuperar;
+	
 	public TelaLogin() {
 		
 		adicionarTituloTela("login", 430, 200, 250, 110);
@@ -87,10 +89,10 @@ public class TelaLogin extends TelaPadrao{
 	
 	public void botaoRecuperarSenha() {
 		
-		JButton botao = new JButton("Recuperar senha");
-		botao.setBounds(300, 500, 130, 60);
-		botao.setVisible(true);
-		add(botao);
+		botaoRecuperar = new JButton("Recuperar senha");
+		botaoRecuperar.setBounds(300, 500, 130, 60);
+		botaoRecuperar.setVisible(true);
+		add(botaoRecuperar);
 	}
 	
 	public void botaoEntrar() {
