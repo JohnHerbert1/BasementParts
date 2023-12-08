@@ -99,4 +99,8 @@ public class TelaListagemServicos extends TelaPadrao {
 		add(painelTabela);
 	}
 	
+	public static void main(String[]args) {
+		
+		new TelaListagemServicos();
+	}
 }

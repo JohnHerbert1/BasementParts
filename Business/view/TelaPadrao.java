@@ -28,6 +28,15 @@ public class TelaPadrao extends JFrame {
 		add(lblTitulo);
     }
     
+    protected void adicionarTituloTela(String titulo, int x, int y, int b, int c) {
+    	
+    	JLabel titulJLabel = new JLabel(titulo);
+    	titulJLabel.setBounds(x, y, b, c);
+    	titulJLabel.setFont(new Font("Arial", Font.BOLD, 20));
+    	add(titulJLabel);
+    	
+    }
+    
     public void addLookAndFeel() {
 		try {
 		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
