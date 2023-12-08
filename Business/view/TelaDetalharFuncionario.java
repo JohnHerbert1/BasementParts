@@ -14,10 +14,10 @@ public class TelaDetalharFuncionario extends TelaPadrao {
 
 	// Labels dos dados do funcionário
 	private void adicionarLabelsDetalharFuncionario() {
-		JLabel lblNome = new JLabel("Email:");
-		lblNome.setBounds(110, 120, 250, 110);
-		lblNome.setFont(new Font("Arial", Font.BOLD, 15));
-		add(lblNome);
+		JLabel lblEmail = new JLabel("Email:");
+		lblEmail.setBounds(110, 120, 250, 110);
+		lblEmail.setFont(new Font("Arial", Font.BOLD, 15));
+		add(lblEmail);
 		
 		JLabel lblNumero = new JLabel("Número:");
 		lblNumero.setBounds(110, 190, 250, 110);
