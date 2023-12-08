@@ -2,14 +2,27 @@ package view;
 
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import control.AdmControl;
+import model.AdmModel;
 
 public class TelaCadastroADM extends TelaPadrao{
 
+	
+	private AdmControl admControl;
+	private AdmModel admModel;
+	private JButton botaoCadastrar;
+	private JTextField email;
+	private JTextField senha;
+	
 	
 	public TelaCadastroADM() {
 		
@@ -19,13 +32,14 @@ public class TelaCadastroADM extends TelaPadrao{
 		labelEmail();
 		labelSenha();
 		criarImagen();
-		botaoCadastrar();
+		botao();
+		ouvinteCadastrar();
 		setVisible(true);
 	}
 	
 	public void textEmail() {
 		
-		JTextField email= new JTextField();
+		email= new JTextField();
 		email.setBounds(250, 310, 400, 35);
 		email.setVisible(true);
 		add(email);
@@ -33,7 +47,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	
 	public void textSenha() {
 		
-		JTextField senha= new JTextField();
+		senha= new JTextField();
 		senha.setBounds(250, 390, 400, 35);
 		senha.setVisible(true);
 		add(senha);
@@ -59,7 +73,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	
 	public void criarImagen() {
 		
-		ImageIcon imagem= new ImageIcon("Business/Imagens/loginProjeto.png", "");
+		ImageIcon imagem= new ImageIcon("Business/Imagens/iconBasementParts.png", "");
 		Image nova= imagem.getImage();
 		Image newimg = nova.getScaledInstance(150, 150,java.awt.Image.SCALE_SMOOTH);
 		imagem= new ImageIcon(newimg);
@@ -72,19 +86,37 @@ public class TelaCadastroADM extends TelaPadrao{
 		
 	}
 	
-	public void botaoCadastrar() {
+	public void botao() {
 	
 		
-		JButton cadastrar= new JButton("Cadastrar");
-		cadastrar.setBounds(330, 450, 100, 50);
-		cadastrar.setVisible(true);
-		add(cadastrar);
+		botaoCadastrar = new JButton("Cadastrar");
+		botaoCadastrar.setBounds(330, 450, 100, 50);
+		botaoCadastrar.setVisible(true);
+		add(botaoCadastrar);
 			
 		JButton fechar= new JButton("Voltar");
 		fechar.setBounds(480, 450, 100, 50);
 		fechar.setVisible(true);
 		add(fechar);
 		
+	}
+	
+	public void ouvinteCadastrar() {
+		
+		admModel = new AdmModel();
+		admControl= AdmControl.getAdmControl(admModel);
+		
+		botaoCadastrar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				if(email.getText()== null && senha.getText()== null) {
+					
+					//JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", ERROR);
+					System.out.println("erro");
+				}
+			}
+		});
 	}
 	
 	

@@ -63,7 +63,7 @@ public class TelaLogin extends TelaPadrao{
 	
 	public void criarImagen() {
 		
-		ImageIcon imagem= new ImageIcon("Business/Imagens/loginProjeto.png", "");
+		ImageIcon imagem= new ImageIcon("Business/Imagens/iconBasementParts.png", "");
 		Image nova= imagem.getImage();
 		Image newimg = nova.getScaledInstance(150, 150,java.awt.Image.SCALE_SMOOTH);
 		imagem= new ImageIcon(newimg);
