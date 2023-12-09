@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 import dao.AdmDAO;
 import dto.AdmDTO;
 
@@ -35,6 +37,21 @@ public class AdmModel {
 		}
 	}
 	
+	public boolean connectProcurar(AdmDTO admDTO) {
+		
+		return admDAO.procurar(admDTO);
+	}
+	
+	
+	public ArrayList<AdmDTO> connectedArrayList(){
+		
+		return admDAO.getList();
+	}
+	
+	public boolean connectRead(AdmDTO admDTO) {
+		
+		return admDAO.read(admDTO);
+	}
 	
 	//SERVICOS RELACIONADO AO CLIENT 
 	public void serviceCreat() {

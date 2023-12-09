@@ -1,9 +1,12 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import control.AdmControl;
+import dto.AdmDTO;
 import model.AdmModel;
 
 public class TelaCadastroADM extends TelaPadrao{
@@ -25,6 +29,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	
 	
 	public TelaCadastroADM() {
+
 		
 		adicionarTituloTela("Cadastro de Administrador",  320, 200, 300, 90);
 		textEmail();
@@ -38,22 +43,65 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void textEmail() {
+
 		
 		email= new JTextField();
 		email.setBounds(250, 310, 400, 35);
 		email.setVisible(true);
+		
+		email.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				email.setForeground(Color.BLACK);
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				
+				if(email.getText().equals("")) {
+					email.setFont(new Font("Tahoma", Font.PLAIN, 11));
+					email.setForeground(Color.RED);
+					email.setText("Preenchimento obrigatório!");
+				}
+			}
+		});
+		
 		add(email);
 	}
 	
 	public void textSenha() {
+
 		
 		senha= new JTextField();
 		senha.setBounds(250, 390, 400, 35);
 		senha.setVisible(true);
+		
+		senha.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				senha.setForeground(Color.black);
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				if(senha.getText().equals("")) {
+					senha.setFont(new Font("Tahoma", Font.PLAIN, 11));
+					senha.setForeground(Color.RED);
+					senha.setText("Preenchimento obrigatório!");
+				}
+				
+			}
+		});
+		
 		add(senha);
 	}
 	
 	public void labelEmail() {
+
 	
 		JLabel label= new JLabel("E-mail:");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -63,6 +111,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void labelSenha() {
+
 		
 		JLabel label= new JLabel("Senha: ");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -72,6 +121,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void criarImagen() {
+
 		
 		ImageIcon imagem= new ImageIcon("Business/Imagens/iconBasementParts.png", "");
 		Image nova= imagem.getImage();
@@ -87,6 +137,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void botao() {
+
 	
 		
 		botaoCadastrar = new JButton("Cadastrar");
@@ -102,25 +153,36 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void ouvinteCadastrar() {
-		
-		admModel = new AdmModel();
+
+		admModel= new AdmModel();
 		admControl= AdmControl.getAdmControl(admModel);
 		
 		botaoCadastrar.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
+
+				String textEmail = email.getText();
+				String textSenha= senha.getText();
 				
-				if(email.getText()== null && senha.getText()== null) {
+				if(!textEmail.equals("") && !textSenha.equals("")) {// pq email esta apagando as informações ? consertar depois
 					
-					//JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", ERROR);
-					System.out.println("erro");
+					admControl.saveControll(new AdmDTO(textEmail, textSenha));
+					JOptionPane.showMessageDialog(null, "Seja Bem Vindo", "", JOptionPane.OK_OPTION);
+					dispose();
+					new TelaLogin();
+						
+				} else {
+				
+					JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", JOptionPane.ERROR_MESSAGE);	
 				}
 			}
 		});
+		
 	}
 	
 	
 	public static void main(String[]args) {
+
 		
 		new TelaCadastroADM();
 	}

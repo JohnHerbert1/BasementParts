@@ -1,8 +1,6 @@
-package dao;
+package bd;
 
 import java.io.File;
-
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,39 +10,42 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 
-public class ProdutoBD implements ConnectionXML{
-	
-	private  XStream xstream = new XStream(new DomDriver("ISO-8859-1"));
-	private   File arquivo = new File("!Party-Helpy.xml ");
+import dao.AdmDAO;
+import dao.ProdutoDAO;
 
+public class AdmCreat implements CreatConnectionBD{
+
+	private  XStream xstream = new XStream(new DomDriver());
+	private   File arquivo = new File("Produto.xml ");
+	
+	
 	
 
 	@Override
-	public ProdutoDAO recuperar() {
+	public AdmDAO recuperar() {
 		
 		try {
 
-			if (arquivo.exists()) {
-				FileInputStream fis = new FileInputStream(arquivo);
-				xstream.addPermission(AnyTypePermission.ANY);
-				return (ProdutoDAO) xstream.fromXML(fis);
+			if (this.arquivo.exists()) {
+				FileInputStream fis = new FileInputStream(this.arquivo);
+				this.xstream.addPermission(AnyTypePermission.ANY);
+				return (AdmDAO) xstream.fromXML(fis);
 			}
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		return new ProdutoDAO();
+		return new AdmDAO();
 	}
 
 
 
 	@Override
-	public void salvar(Object element) {
-		ProdutoDAO produtoDAO = (ProdutoDAO) element;
+	public void creatConnection(Object element) {
 		
 
 		String xml = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>\n";
-		xml += xstream.toXML(produtoDAO);
+		xml += xstream.toXML(element);
 
 		try {
 			if (!arquivo.exists()) 
@@ -56,13 +57,6 @@ public class ProdutoBD implements ConnectionXML{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
-
-
-
-
-
 }

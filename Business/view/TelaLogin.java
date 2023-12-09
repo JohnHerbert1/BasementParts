@@ -1,16 +1,34 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import control.AdmControl;
+import dto.AdmDTO;
+import model.AdmModel;
 
 
 public class TelaLogin extends TelaPadrao{
+	
+	private JButton botaoRecuperar;
+	private AdmControl admControl;
+	private AdmModel admModel;
+	private JButton botaoCadastrar;
+	private JTextField email;
+	private JTextField senha;
+	private JButton botaoEntrar;
 	
 	public TelaLogin() {
 		
@@ -23,23 +41,63 @@ public class TelaLogin extends TelaPadrao{
 		botaoCadastro();
 		botaoRecuperarSenha();
 		botaoEntrar();
+		ouvinteEntrar();
 		setVisible(true);
 	}
 	
 	
 	public void textEmail() {
 		
-		JTextField email= new JTextField();
+		email= new JTextField();
 		email.setBounds(250, 310, 400, 35);
 		email.setVisible(true);
+		
+		email.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				email.setForeground(Color.BLACK);
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				
+				if(email.getText().equals("")) {
+					
+					email.setFont(new Font("Tohama", Font.PLAIN, 11));
+					email.setForeground(Color.RED);
+					email.setText("Preenchimento obrigatório!");
+				}
+			}
+		});
+		
 		add(email);
 	}
 	
 	public void textSenha() {
 		
-		JTextField senha= new JTextField();
+		senha= new JTextField();
 		senha.setBounds(250, 390, 400, 35);
 		senha.setVisible(true);
+		
+		senha.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				senha.setForeground(Color.BLACK);
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				
+				senha.setFont(new Font("Tohama", Font.PLAIN, 11));
+				senha.setForeground(Color.RED);
+				senha.setText("preenchimento obrigatório!");
+			}
+		});
+		
 		add(senha);
 	}
 	
@@ -83,22 +141,54 @@ public class TelaLogin extends TelaPadrao{
 		botao.setVisible(true);
 		add(botao);
 		
+		
 	}
 	
 	public void botaoRecuperarSenha() {
 		
-		JButton botao = new JButton("Recuperar senha");
-		botao.setBounds(300, 500, 130, 60);
-		botao.setVisible(true);
-		add(botao);
+		botaoRecuperar = new JButton("Recuperar senha");
+		botaoRecuperar.setBounds(300, 500, 130, 60);
+		botaoRecuperar.setVisible(true);
+		add(botaoRecuperar);
 	}
 	
 	public void botaoEntrar() {
 		
-		JButton botao= new JButton("Entrar");
-		botao.setBounds(410, 435, 80, 50);
-		botao.setVisible(true);
-		add(botao);
+		botaoEntrar= new JButton("Entrar");
+		botaoEntrar.setBounds(410, 435, 80, 50);
+		botaoEntrar.setVisible(true);
+		add(botaoEntrar);
+	}
+	
+	public void ouvinteEntrar() {
+		
+		admModel= new AdmModel();
+		admControl= AdmControl.getAdmControl(admModel); 
+		
+		botaoEntrar.addActionListener(new ActionListener() {
+			
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				String textEmail= email.getText();
+				String textSenha= senha.getText();
+				
+				if (!textEmail.equals("") && !textSenha.equals("")) {
+					
+					if (admControl.procurarControll(new AdmDTO(textEmail, textSenha))) {
+						
+						
+						JOptionPane.showConfirmDialog(null, "Deu certo", "", JOptionPane.INFORMATION_MESSAGE);
+						dispose();
+						//perguntar a john o que vem depoois de login
+					}
+					
+					
+					
+				}
+			}
+		});
+		
 	}
 	
 	public static void main(String[]args) {
