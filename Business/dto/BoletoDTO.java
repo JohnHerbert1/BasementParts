@@ -8,6 +8,7 @@ public class BoletoDTO {
 	private String eMail;
 	private FuncionarioDTO funcionario;//FUNCIONARIO QUE FEZ O PEDIDO DA COMPRA OU DO SERVICO 
 	private float price;
+	private int id;
 	private ProdutoDTO produto;
 	private LocalDate efetuamentoDaCompra;
 	private LocalDate dataDePamento;
@@ -16,8 +17,6 @@ public class BoletoDTO {
 	public BoletoDTO() {
 	}
 	
-	
-
 	public String geteMail() {
 		return eMail;
 	}
@@ -72,6 +71,18 @@ public class BoletoDTO {
 
 	public void setEfetuamentoDaCompra(LocalDate efetuamentoDaCompra) {
 		this.efetuamentoDaCompra = efetuamentoDaCompra;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

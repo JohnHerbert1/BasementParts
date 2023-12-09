@@ -2,6 +2,8 @@ package msg;
 
 public interface Mediator {
 
-	void enviarMsg(MsgCollage collage);
+	void sendMsg(MsgCollage collage);
+	
+	boolean toCheckResponsability(MsgCollage collages);
 	
 }

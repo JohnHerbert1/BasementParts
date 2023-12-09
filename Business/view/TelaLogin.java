@@ -162,31 +162,23 @@ public class TelaLogin extends TelaPadrao{
 	
 	public void ouvinteEntrar() {
 		
-		admModel= new AdmModel();
-		admControl= AdmControl.getAdmControl(admModel); 
 		
 		botaoEntrar.addActionListener(new ActionListener() {
 			
+			AdmControl controle = AdmControl.getAdmControl();
 			
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				
 				String textEmail= email.getText();
 				String textSenha= senha.getText();
 				
-				if (!textEmail.equals("") && !textSenha.equals("")) {
-					
-					if (admControl.procurarControll(new AdmDTO(textEmail, textSenha))) {
-						
-						
+			//	if (controle.) {
 						JOptionPane.showConfirmDialog(null, "Deu certo", "", JOptionPane.INFORMATION_MESSAGE);
 						dispose();
-						//perguntar a john o que vem depoois de login
 					}
 					
-					
-					
-				}
-			}
 		});
 		
 	}

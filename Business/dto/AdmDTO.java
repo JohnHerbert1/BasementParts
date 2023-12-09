@@ -6,10 +6,10 @@ public class AdmDTO {
 	private String eMail;
 	private String senha;
 	//NAO A ID POIS SO PODERA AVER UMA CONTA ADM CADASTRADA DE FORMA SEPARADA 
-	public AdmDTO(String eMail, String senha) {
+	public AdmDTO(String email , String senha) {
+		seteMail(email);
+		setSenha(senha);
 		
-		this.eMail= eMail;
-		this.senha= senha;
 	}
 
 	public String geteMail() {

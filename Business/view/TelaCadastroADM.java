@@ -17,6 +17,10 @@ import javax.swing.JTextField;
 import control.AdmControl;
 import dto.AdmDTO;
 import model.AdmModel;
+import msg.CollageCadastroVerifiction;
+import msg.CollageCamposVazios;
+import msg.CollageSucessoCadastro;
+import msg.Mediador;
 
 public class TelaCadastroADM extends TelaPadrao{
 
@@ -153,27 +157,30 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void ouvinteCadastrar() {
+		Mediador mediador = Mediador.getInstanci();
+		AdmControl controle = AdmControl.getAdmControl();
 
-		admModel= new AdmModel();
-		admControl= AdmControl.getAdmControl(admModel);
-		
 		botaoCadastrar.addActionListener(new ActionListener() {
-
+			CollageCadastroVerifiction verificarEmail = new CollageCadastroVerifiction(mediador);
+			CollageCamposVazios camposVazio = new CollageCamposVazios(mediador);
+			CollageSucessoCadastro sucesso = new CollageSucessoCadastro(mediador);
+			
 			public void actionPerformed(ActionEvent e) {
-
+				mediador.addMediador(verificarEmail);
+				mediador.addMediador(camposVazio);
+				mediador.addMediador(sucesso);
+				
 				String textEmail = email.getText();
 				String textSenha= senha.getText();
+				mediador.setDados(textEmail);
 				
-				if(!textEmail.equals("") && !textSenha.equals("")) {// pq email esta apagando as informações ? consertar depois
-					
-					admControl.saveControll(new AdmDTO(textEmail, textSenha));
-					JOptionPane.showMessageDialog(null, "Seja Bem Vindo", "", JOptionPane.OK_OPTION);
+				if(mediador.toCheckResponsability(verificarEmail) == true) {
+					controle.saveControll(new AdmDTO(textEmail, textSenha));
+					mediador.sendMsg(sucesso);
 					dispose();
 					new TelaLogin();
-						
 				} else {
-				
-					JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", JOptionPane.ERROR_MESSAGE);	
+				mediador.sendMsg(verificarEmail);
 				}
 			}
 		});

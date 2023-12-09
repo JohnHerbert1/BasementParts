@@ -43,9 +43,10 @@ public class FuncionarioDAO implements FuncionarioCrud <FuncionarioDTO>{
 	}
 
 	@Override
-	public boolean delect(int id) throws Exception{
-		if(read(id) != null) {
-			allFuncionarios.remove(id);
+	public boolean delect(FuncionarioDTO funcionario) throws Exception{
+		FuncionarioDTO lixo = read(funcionario.getIdFuncionario());
+		if(lixo != null) {
+			allFuncionarios.remove(lixo);
 			return true;
 		}
 		
