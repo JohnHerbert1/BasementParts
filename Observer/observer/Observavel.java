@@ -1,6 +1,6 @@
 package observer;
-// UML: Sujeito
-public interface Sujeito {
+
+public interface Observavel {
 	
 	public void adicionar(Observadora observadora);
 	

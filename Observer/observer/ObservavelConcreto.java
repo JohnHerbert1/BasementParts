@@ -2,12 +2,12 @@ package observer;
 
 import java.util.ArrayList;
 import java.util.List;
-// UML: Sujeito Concreto.
-public class SujeitoConcreto implements Sujeito {
+
+public class ObservavelConcreto implements Observavel {
 
 	private List<Observadora> observadores;
 	
-	public SujeitoConcreto() {
+	public ObservavelConcreto() {
 		observadores = new ArrayList<>();
 	}
 	

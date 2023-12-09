@@ -1,12 +1,16 @@
 package observer;
-// UML: Observador Concreto;
+
+import view.TelaDetalharProduto;
+import view.TelaListagemProdutos;
+
 public class ObservadoraConcreta implements Observadora {
 
-	private ObservadoraConcreta estado;
+	private TelaListagemProdutos telaListagemProdutos;
 	
 	@Override
 	public void atualizar() {
-		
+		telaListagemProdutos.dispose();
+		new TelaDetalharProduto();
 	}
 
 }
