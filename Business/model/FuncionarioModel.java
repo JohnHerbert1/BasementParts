@@ -20,13 +20,21 @@ public class FuncionarioModel {
 			System.out.println(e1.getMessage());
 		}
 	}
-	public void serviceConnectDelect(int id) {
+	public void serviceConnectDelect(FuncionarioDTO funcionario) {
 		try {
-		funcionarioDAO.delect(id);
+		funcionarioDAO.delect(funcionario);
 		}catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		
+	}
+	
+	public void serviceUpdateConnect() {
+		try {
+			funcionarioDAO.update();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<FuncionarioDTO> serviceAllDisplay() {

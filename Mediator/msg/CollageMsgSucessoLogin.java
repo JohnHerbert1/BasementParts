@@ -8,9 +8,16 @@ public class CollageMsgSucessoLogin extends MsgCollage {
 		super(m);
 	}
 
+
 	@Override
-	public void receberMsg(Object o, String msg) {
-		JOptionPane.showMessageDialog(null, o + "Login efetuado com sucesso");
+	public void catchMsg(Object objectMsg, String dadosString) {
+		JOptionPane.showMessageDialog(null, "Login efetuado com Sucesso","Sucesso",JOptionPane.YES_OPTION);
+
+	}
+
+	@Override
+	public boolean catchResponsability(String yes) {
+		return true;
 	}
 
 }

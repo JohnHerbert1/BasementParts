@@ -8,9 +8,16 @@ public class CollageMsgSucessoEnvio extends MsgCollage {
 		super(m);
 	}
 
+
 	@Override
-	public void receberMsg(Object objectMsg, String msg) {
-		JOptionPane.showMessageDialog(null, objectMsg + " Relatorio enviado com sucesso");
+	public void catchMsg(Object objectMsg, String dadosString) {
+		JOptionPane.showMessageDialog(null, "Sucesso ao enviar Dados ao Email","Sucesso",JOptionPane.YES_OPTION);
+
+	}
+
+	@Override
+	public boolean catchResponsability(String dadosValidos) {
+		return true;
 	}
 
 }

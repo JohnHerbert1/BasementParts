@@ -1,23 +1,26 @@
 package model;
 
-import java.util.ArrayList;
-
+import bd.AdmTabela;
+import bd.Persistencia;
 import dao.AdmDAO;
 import dto.AdmDTO;
 
 public class AdmModel {
-
+	
+	Persistencia persistencia = Persistencia.getInstanci();
 	private AdmDAO admDAO;
 	
 	public AdmModel() {
+		persistencia.escolherEstrategia(new AdmTabela());
+		admDAO = (AdmDAO) persistencia.recuperar();
 		
-		admDAO= new AdmDAO();
 	}
 	
 	public void serviceConnectSave(AdmDTO admDTO) {
 		
-		try {
+		try {			
 			admDAO.save(admDTO);
+			persistencia.salvarXstream(admDAO);
 			
 		} catch (Exception e) {
 			
@@ -30,6 +33,7 @@ public class AdmModel {
 		try {
 			
 			admDAO.delect(admDTO);
+			persistencia.salvarXstream(admDAO);
 			
 		} catch (Exception e) {
 	
@@ -37,20 +41,8 @@ public class AdmModel {
 		}
 	}
 	
-	public boolean connectProcurar(AdmDTO admDTO) {
+	public void serviceConnectIsLogin(AdmDTO object) {
 		
-		return admDAO.procurar(admDTO);
-	}
-	
-	
-	public ArrayList<AdmDTO> connectedArrayList(){
-		
-		return admDAO.getList();
-	}
-	
-	public boolean connectRead(AdmDTO admDTO) {
-		
-		return admDAO.read(admDTO);
 	}
 	
 	//SERVICOS RELACIONADO AO CLIENT 

@@ -16,7 +16,7 @@ public interface FuncionarioCrud <t> {
 	
 	public boolean update() throws Exception;
 	
-	public boolean delect(int id) throws Exception;
+	public boolean delect(FuncionarioDTO funcionario) throws Exception;
 	
 	
 }

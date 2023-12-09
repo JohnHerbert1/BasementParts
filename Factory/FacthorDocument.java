@@ -1,5 +1,4 @@
 import geral.OptionNotExistExcption;
-import organazi.ValueStatic;
 
 public class FacthorDocument {
 
