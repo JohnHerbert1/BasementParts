@@ -1,7 +1,7 @@
 package observer;
 // UML: Observer
-public interface Observadora {	// Ou ObservadoraDeComandos.
-
+public interface Observadora {
+	
     public void atualizar();
 
 }
