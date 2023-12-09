@@ -177,8 +177,9 @@ public class TelaLogin extends TelaPadrao{
 					
 					if (admControl.procurarControll(new AdmDTO(textEmail, textSenha))) {
 						
-						dispose();
+						
 						JOptionPane.showConfirmDialog(null, "Deu certo", "", JOptionPane.INFORMATION_MESSAGE);
+						dispose();
 						//perguntar a john o que vem depoois de login
 					}
 					

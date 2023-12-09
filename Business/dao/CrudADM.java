@@ -6,11 +6,11 @@ public interface CrudADM <t> {
 
 	
 
-	//public Iterable<t> getList();
+	public Iterable<t> getList();
 	
 	public boolean save(AdmDTO elemento) throws Exception;
 	
-//	public t read(AdmDTO elemento) throws Exception;
+	public boolean read(AdmDTO admDTO) ;
 	
 	public boolean update() throws Exception;
 	

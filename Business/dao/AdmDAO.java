@@ -6,24 +6,27 @@ import dto.AdmDTO;
 
 public class AdmDAO implements CrudADM<AdmDTO>{
 
-	ArrayList<AdmDTO> allAdms;
+	ArrayList<AdmDTO> allAdms= new ArrayList<AdmDTO>();
+	protected AdmBD admBD;
 	
 	public AdmDAO() {
 		
+		admBD= new AdmBD();
 	}
 
 	@Override
 	public boolean save(AdmDTO elemento) throws Exception {
 		
-		if(allAdms.size() > 0) {
+		if(read(elemento)==false) {
 			throw new Exception();
 		}
 		allAdms.add(elemento);
+		admBD.salvar(allAdms);
 		return false;
 	}
 
 
-
+	
 	@Override
 	public boolean update() throws Exception {
 		return false;
@@ -44,6 +47,23 @@ public class AdmDAO implements CrudADM<AdmDTO>{
 			}
 		}
 		
+		return false;
+	}
+
+	@Override
+	public ArrayList<AdmDTO> getList() {
+		
+		return allAdms;
+	}
+
+	@Override
+	public boolean read(AdmDTO admDTO){
+		
+		for(int i = 0; i <allAdms.size();i++) {
+			if(allAdms.get(i).geteMail() == admDTO.geteMail()) {
+				return true;
+			}
+		}
 		return false;
 	}
 	

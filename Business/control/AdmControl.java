@@ -11,7 +11,6 @@ public class AdmControl {
 	protected AdmModel ADMModel;
 	protected View view; 
 	
-	
 	public void saveControll(AdmDTO dto) {
 		
 		ADMModel.serviceConnectSave(dto);
