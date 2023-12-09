@@ -3,11 +3,11 @@ package observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservavelConcreto implements Observavel {
+public class ObservavelBotaoDetalharProduto implements Observavel {
 
 	private List<Observadora> observadores;
 	
-	public ObservavelConcreto() {
+	public ObservavelBotaoDetalharProduto() {
 		observadores = new ArrayList<>();
 	}
 	

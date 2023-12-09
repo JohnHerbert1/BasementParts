@@ -72,6 +72,7 @@ public class TelaListagemProdutos extends TelaPadrao {
 	}
 	
 	private void adicionarBotaoDetalhar() {
+		btnDetalhar = new JButton("Detalhar");
 		btnDetalhar.setBounds(150, 595, 180, 80);
 		btnDetalhar.setFont(new Font("Arial", Font.BOLD, 18));
 		add(btnDetalhar);

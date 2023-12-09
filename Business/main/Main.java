@@ -1,7 +1,5 @@
 package main;
 
-import view.TelaListagemProdutos;
-
 public class Main {
 	
 	public static void main(String[] args) {
@@ -12,7 +10,7 @@ public class Main {
 //		TelaPadrao tela = new TelaPadrao();
 //		new TelaListagemServicos();
 //		new TelaDetalharFuncionario();
-		new TelaListagemProdutos();
+//		new TelaListagemProdutos();
 //		new TelaListagemFuncionarios();
 //		new TelaDetalharProduto();
 //		new TelaDetalharServico();
