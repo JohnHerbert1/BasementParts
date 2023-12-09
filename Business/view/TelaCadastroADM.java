@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import control.AdmControl;
+import dto.AdmDTO;
 import model.AdmModel;
 
 public class TelaCadastroADM extends TelaPadrao{
@@ -28,6 +29,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	
 	
 	public TelaCadastroADM() {
+
 		
 		adicionarTituloTela("Cadastro de Administrador",  320, 200, 300, 90);
 		textEmail();
@@ -37,27 +39,69 @@ public class TelaCadastroADM extends TelaPadrao{
 		criarImagen();
 		botao();
 		ouvinteCadastrar();
-		ouvinteEmail();
 		setVisible(true);
 	}
 	
 	public void textEmail() {
+
 		
 		email= new JTextField();
 		email.setBounds(250, 310, 400, 35);
 		email.setVisible(true);
+		
+		email.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				email.setForeground(Color.BLACK);
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				
+				if(email.getText().equals("")) {
+					email.setFont(new Font("Tahoma", Font.PLAIN, 11));
+					email.setForeground(Color.RED);
+					email.setText("Preenchimento obrigatório!");
+				}
+			}
+		});
+		
 		add(email);
 	}
 	
 	public void textSenha() {
+
 		
 		senha= new JTextField();
 		senha.setBounds(250, 390, 400, 35);
 		senha.setVisible(true);
+		
+		senha.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				senha.setForeground(Color.black);
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				if(senha.getText().equals("")) {
+					senha.setFont(new Font("Tahoma", Font.PLAIN, 11));
+					senha.setForeground(Color.RED);
+					senha.setText("Preenchimento obrigatório!");
+				}
+				
+			}
+		});
+		
 		add(senha);
 	}
 	
 	public void labelEmail() {
+
 	
 		JLabel label= new JLabel("E-mail:");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -67,6 +111,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void labelSenha() {
+
 		
 		JLabel label= new JLabel("Senha: ");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -76,6 +121,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void criarImagen() {
+
 		
 		ImageIcon imagem= new ImageIcon("Business/Imagens/iconBasementParts.png", "");
 		Image nova= imagem.getImage();
@@ -91,6 +137,7 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void botao() {
+
 	
 		
 		botaoCadastrar = new JButton("Cadastrar");
@@ -106,50 +153,36 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void ouvinteCadastrar() {
-		
-		admModel = new AdmModel();
+
+		admModel= new AdmModel();
 		admControl= AdmControl.getAdmControl(admModel);
 		
 		botaoCadastrar.addActionListener(new ActionListener() {
-			
-			String textEmail = email.getText();
-			String textSenha= senha.getText();
-			
+
 			public void actionPerformed(ActionEvent e) {
+
+				String textEmail = email.getText();
+				String textSenha= senha.getText();
 				
-				if(textEmail.equals("") && textSenha.equals("")) {
+				if(!textEmail.equals("") && !textSenha.equals("")) {// pq email esta apagando as informações ? consertar depois
 					
-					JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", ERROR);
+					admControl.saveControll(new AdmDTO(textEmail, textSenha));
+					JOptionPane.showMessageDialog(null, "Seja Bem Vindo", "", JOptionPane.OK_OPTION);
+					dispose();
+					new TelaLogin();
 						
-					//System.out.println(email);
+				} else {
+				
+					JOptionPane.showMessageDialog(null, "Preencha os campos para cadastrar", "Erro", JOptionPane.ERROR_MESSAGE);	
 				}
 			}
 		});
-	}
-	
-	public void ouvinteEmail() {
 		
-		email.addFocusListener(new FocusListener() {
-			
-			@Override
-			public void focusLost(FocusEvent e) {
-				
-				email.setForeground(Color.BLACK);
-				email.setText("");
-			}
-			
-			@Override
-			public void focusGained(FocusEvent e) {
-				
-				if(email.getText().equals("")) {
-					
-				}
-			}
-		});
 	}
 	
 	
 	public static void main(String[]args) {
+
 		
 		new TelaCadastroADM();
 	}

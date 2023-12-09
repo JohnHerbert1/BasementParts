@@ -34,4 +34,17 @@ public class AdmDAO implements CrudADM<AdmDTO>{
 		return allAdms.remove(0) != null;
 	}
 
+	public boolean procurar(AdmDTO dto) {
+		
+		for(int i= 0; i< allAdms.size(); i++) {
+			
+			if (allAdms.get(i).equals(dto)) {
+				
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
 }

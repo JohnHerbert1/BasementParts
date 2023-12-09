@@ -35,6 +35,11 @@ public class AdmModel {
 		}
 	}
 	
+	public boolean connectProcurar(AdmDTO admDTO) {
+		
+		return admDAO.procurar(admDTO);
+	}
+	
 	
 	//SERVICOS RELACIONADO AO CLIENT 
 	public void serviceCreat() {

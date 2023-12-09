@@ -2,6 +2,7 @@ package control;
 
 import javax.swing.text.View;
 
+import dto.AdmDTO;
 import model.AdmModel;
 
 public class AdmControl {
@@ -10,6 +11,17 @@ public class AdmControl {
 	protected AdmModel ADMModel;
 	protected View view; 
 	
+	
+	public void saveControll(AdmDTO dto) {
+		
+		ADMModel.serviceConnectSave(dto);
+		
+	}
+	
+	public boolean procurarControll(AdmDTO admDTO) {
+		
+		return ADMModel.connectProcurar(admDTO);
+	}
 	public AdmControl(AdmModel model) {//ESTOU FAZENDO ASSIM PRA FUNCIONAR COMO AGREGAÇÃO
 		this.ADMModel = model;
 	}
