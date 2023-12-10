@@ -1,12 +1,19 @@
 package observer;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ObservavelBotaoDetalharProduto implements Observavel {
+public class ObservavelBotaoDetalharProduto extends Observavel implements ActionListener {
 
 	private List<Observadora> observadores;
+	private ActionEvent cliqueDoBotao;
 	
+	public ActionEvent getCliqueDoBotao() {
+		return cliqueDoBotao;
+	}
+
 	public ObservavelBotaoDetalharProduto() {
 		observadores = new ArrayList<>();
 	}
@@ -27,11 +34,18 @@ public class ObservavelBotaoDetalharProduto implements Observavel {
 	@Override
 	public void notificar() {
 		for (Observadora observadora : observadores) {
-			observadora.atualizar();
+			// if (cliqueDoBotao.getSource())	// Como notificar o clique do botão?
+				observadora.atualizar();
 		}
 	}
 	
-	public void atualizarInformacoes() {
+	// public void atualizarInformacoes() {
+	// 	notificar();
+	// }	// Comentei porque não sei se o método é necessário.
+
+	@Override
+	public void actionPerformed(ActionEvent evento) {
+		cliqueDoBotao = (ActionEvent) evento.getSource();
 		notificar();
 	}
 

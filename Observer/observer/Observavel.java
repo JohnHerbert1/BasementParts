@@ -1,11 +1,11 @@
 package observer;
 
-public interface Observavel {
+public abstract class Observavel {
 	
-	public void adicionar(Observadora observadora);
+	public abstract void adicionar(Observadora observadora);
 	
-	public void remover(Observadora observadora);
+	public abstract void remover(Observadora observadora);
 	
-	public void notificar();
+	public abstract void notificar();
 
 }
