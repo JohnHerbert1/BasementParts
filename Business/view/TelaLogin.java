@@ -17,7 +17,13 @@ import javax.swing.JTextField;
 
 import control.AdmControl;
 import dto.AdmDTO;
+import fabricas.Button;
+import fabricas.CriarImagem;
+import fabricas.Texto;
+import fabricas.iLabel;
 import model.AdmModel;
+import model.EnvioEmail;
+import model.GerarSenhaAleatoria;
 
 
 public class TelaLogin extends TelaPadrao{
@@ -25,10 +31,12 @@ public class TelaLogin extends TelaPadrao{
 	private JButton botaoRecuperar;
 	private AdmControl admControl;
 	private AdmModel admModel;
-	private JButton botaoCadastrar;
+	private JButton botaoVoltar;
 	private JTextField email;
 	private JTextField senha;
 	private JButton botaoEntrar;
+	private AdmDTO admDTO;
+	
 	
 	public TelaLogin() {
 		
@@ -38,19 +46,18 @@ public class TelaLogin extends TelaPadrao{
 		labelEmail();
 		labelSenha();
 		criarImagen();
-		botaoCadastro();
+		botaoVoltar();
 		botaoRecuperarSenha();
 		botaoEntrar();
-		ouvinteEntrar();
+		ouvintes();
 		setVisible(true);
 	}
 	
 	
 	public void textEmail() {
 		
-		email= new JTextField();
-		email.setBounds(250, 310, 400, 35);
-		email.setVisible(true);
+		Texto texto= Texto.getTexto();
+		email= texto.produzir("",250, 310, 400, 35);
 		
 		email.addFocusListener(new FocusListener() {
 			
@@ -77,9 +84,8 @@ public class TelaLogin extends TelaPadrao{
 	
 	public void textSenha() {
 		
-		senha= new JTextField();
-		senha.setBounds(250, 390, 400, 35);
-		senha.setVisible(true);
+		Texto texto= Texto.getTexto();
+		senha= texto.produzir("", 250, 390, 400, 35);
 		
 		senha.addFocusListener(new FocusListener() {
 			
@@ -103,67 +109,58 @@ public class TelaLogin extends TelaPadrao{
 	
 	public void labelEmail() {
 	
-		JLabel label= new JLabel("E-mail:");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label.setBounds(140, 320, 200, 20);
-		label.setVisible(true);
+		iLabel labelS= iLabel.getLabel();
+		JLabel label= labelS.produzir("E-mail",140, 320, 200, 20);
 		add(label);
 	}
 	
 	public void labelSenha() {
-		
-		JLabel label= new JLabel("Senha: ");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label.setBounds(138, 400, 200, 20);
-		label.setVisible(true);
+				
+		iLabel l= iLabel.getLabel();
+		JLabel label= l.produzir("Senha: ", 138, 400, 200, 20);
 		add(label);
 	}
 	
 	public void criarImagen() {
 		
-		ImageIcon imagem= new ImageIcon("Business/Imagens/iconBasementParts.png", "");
-		Image nova= imagem.getImage();
-		Image newimg = nova.getScaledInstance(150, 150,java.awt.Image.SCALE_SMOOTH);
-		imagem= new ImageIcon(newimg);
 		
-		JLabel logo= new JLabel("");
-		logo.setBounds(380, 70, 150, 150);
+		CriarImagem criar= CriarImagem.getCriarImagem();
+		ImageIcon imagem= criar.produzir("Business/Imagens/iconBasementParts.png",150,150, 0, 0);
+		
+		iLabel label= iLabel.getLabel();
+		JLabel logo= label.produzir("", 380, 70, 150, 150);
 		logo.setIcon(imagem);
-		logo.setVisible(true);
 		add(logo);
 		
 	}
 	
-	public void botaoCadastro() {
+	public void botaoVoltar() {
 		
-		JButton botao= new JButton("Cadastre-se");
-		botao.setBounds(460, 500, 130, 60);
-		botao.setVisible(true);
-		add(botao);
-		
+		Button b= Button.getButton();
+		botaoVoltar = b.produzir("Voltar", 460, 500, 130, 60);
+		add(botaoVoltar);
 		
 	}
 	
 	public void botaoRecuperarSenha() {
 		
-		botaoRecuperar = new JButton("Recuperar senha");
-		botaoRecuperar.setBounds(300, 500, 130, 60);
-		botaoRecuperar.setVisible(true);
+		Button b= Button.getButton();
+		botaoRecuperar= b.produzir("Recuperar senha", 300, 500, 130, 60);
 		add(botaoRecuperar);
 	}
 	
 	public void botaoEntrar() {
 		
-		botaoEntrar= new JButton("Entrar");
-		botaoEntrar.setBounds(410, 435, 80, 50);
-		botaoEntrar.setVisible(true);
+		Button b= Button.getButton();
+		botaoEntrar= b.produzir("Entrar",410, 435, 80, 50);
 		add(botaoEntrar);
 	}
 	
-	public void ouvinteEntrar() {
+	public void ouvintes() {
 		
 		admModel= new AdmModel();
 		admControl= AdmControl.getAdmControl(admModel); 
+		
 		
 		botaoEntrar.addActionListener(new ActionListener() {
 			
@@ -182,13 +179,35 @@ public class TelaLogin extends TelaPadrao{
 						dispose();
 						//perguntar a john o que vem depoois de login
 					}
+						
+				}
+				else {
 					
-					
-					
+					JOptionPane.showMessageDialog(null, "Preencha os campos", "", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
 		
+		botaoRecuperar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				String senhaNova= GerarSenhaAleatoria.gerarCodigo();
+				EnvioEmail.enviarEmail(email.getText(), senhaNova);
+				
+				admControl.saveControll(new AdmDTO(email.getText(), senhaNova));// colocar nova senha
+				
+			}
+		});
+		
+		botaoVoltar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+			}
+		});
 	}
 	
 	public static void main(String[]args) {

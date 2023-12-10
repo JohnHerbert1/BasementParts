@@ -2,6 +2,8 @@ package view;
 
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -10,6 +12,10 @@ import javax.swing.JTextField;
 
 public class TelaRecuperarSenha extends TelaPadrao{
 
+	
+	private JTextField textoSenha;
+	private JTextField textoConfirmar;
+	
 	public TelaRecuperarSenha() {
 		
 		adicionarTituloTela("Recuperação de Senha");
@@ -53,12 +59,12 @@ public class TelaRecuperarSenha extends TelaPadrao{
 	
 	public void textFields() {
 		
-		JTextField textoSenha= new JTextField();
+		textoSenha= new JTextField();
 		textoSenha.setBounds(360, 310, 150, 30);
 		textoSenha.setVisible(true);
 		add(textoSenha);
 		
-		JTextField textoConfirmar= new JTextField();
+		textoConfirmar= new JTextField();
 		textoConfirmar.setBounds(360, 410, 150, 30);
 		textoConfirmar.setVisible(true);
 		add(textoConfirmar);
@@ -72,6 +78,21 @@ public class TelaRecuperarSenha extends TelaPadrao{
 		confirmar.setBounds(325, 500, 100, 40);
 		confirmar.setVisible(true);
 		add(confirmar);
+		
+		
+		confirmar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				String senha= textoSenha.getText();
+				String confirmar= textoConfirmar.getText();
+				
+				if(senha.equals(confirmar)) {
+					
+					
+				}
+			}
+		});
 		
 		JButton voltar= new JButton("Voltar");
 		voltar.setBounds(450, 500, 100, 40);
