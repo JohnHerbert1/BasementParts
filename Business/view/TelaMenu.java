@@ -17,6 +17,13 @@ public class TelaMenu extends TelaPadrao{
 		setVisible(true);
 	}
 	
+	public void menul() {
+		
+		menu= new JMenu();
+		menu.setVisible(true);
+		add(menu);
+	}
+	
 	
 	public static void main(String[]args) {
 		
