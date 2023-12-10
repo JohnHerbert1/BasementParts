@@ -1,5 +1,7 @@
 package main;
 
+import view.TelaListagemFuncionarios;
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -11,7 +13,7 @@ public class Main {
 //		new TelaListagemServicos();
 //		new TelaDetalharFuncionario();
 //		new TelaListagemProdutos();
-//		new TelaListagemFuncionarios();
+		new TelaListagemFuncionarios();
 //		new TelaDetalharProduto();
 //		new TelaDetalharServico();
 		/*

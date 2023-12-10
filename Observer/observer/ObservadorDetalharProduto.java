@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import view.TelaListagemProdutos;
 
-public class OuvinteDetalharProduto implements ActionListener {
+public class ObservadorDetalharProduto implements ActionListener {
 
     private TelaListagemProdutos telaListagemProdutos;
 
-    public OuvinteDetalharProduto(TelaListagemProdutos telaListagemProdutos) {
+    public ObservadorDetalharProduto(TelaListagemProdutos telaListagemProdutos) {
     	this.telaListagemProdutos = telaListagemProdutos;
     }
 

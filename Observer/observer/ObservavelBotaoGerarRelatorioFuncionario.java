@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.TelaListagemFuncionarios;
 
-public class OuvinteGerarRelatorioFuncionario implements ActionListener {
+public class ObservavelBotaoGerarRelatorioFuncionario implements ActionListener {
 	
 	private TelaListagemFuncionarios telaListagemFuncionarios;
 	
-	public OuvinteGerarRelatorioFuncionario(TelaListagemFuncionarios telaListagemFuncionarios) {
+	public ObservavelBotaoGerarRelatorioFuncionario(TelaListagemFuncionarios telaListagemFuncionarios) {
 		this.telaListagemFuncionarios = telaListagemFuncionarios;
 	}
 	

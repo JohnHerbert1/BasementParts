@@ -1,6 +1,6 @@
 package observer;
 
-public interface Observadora {
+public interface Observador {
 	
     public void atualizar();
 

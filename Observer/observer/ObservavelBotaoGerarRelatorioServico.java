@@ -4,11 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import view.TelaListagemServicos;
 
-public class OuvinteGerarRelatorioServico implements ActionListener {
+public class ObservavelBotaoGerarRelatorioServico implements ActionListener {
 
 	private TelaListagemServicos telaListagemServicos;
 	
-	public OuvinteGerarRelatorioServico(TelaListagemServicos telaListagemServicos) {
+	public ObservavelBotaoGerarRelatorioServico(TelaListagemServicos telaListagemServicos) {
 		this.telaListagemServicos = telaListagemServicos;
 	}
 	

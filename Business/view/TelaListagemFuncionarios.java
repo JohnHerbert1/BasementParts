@@ -3,15 +3,17 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 import bd.OrdemServicoTabela;
 import bd.Persistencia;
 import dao.OrdemServicoDAO;
 import dto.OrdemServiceDTO;
-import observer.OuvinteDetalharFuncionario;
+import observer.ObservavelBotaoDetalharFuncionario;
 
 public class TelaListagemFuncionarios extends TelaPadrao {
 	
@@ -40,9 +42,9 @@ public class TelaListagemFuncionarios extends TelaPadrao {
 	private void adicionarBotaoDetalhar() {
 		JButton btnDetalhar = new JButton("Detalhar");
 		btnDetalhar.setBounds(150, 595, 180, 80);
+		ObservavelBotaoDetalharFuncionario observavelDetlharFuncionario = new ObservavelBotaoDetalharFuncionario();
+		btnDetalhar.addActionListener(observavelDetlharFuncionario);
 		btnDetalhar.setFont(new Font("Arial", Font.BOLD, 18));
-		OuvinteDetalharFuncionario ouvinteDetalharFuncionario = new OuvinteDetalharFuncionario(this);
-		btnDetalhar.addActionListener(ouvinteDetalharFuncionario);
 		add(btnDetalhar);
 	}
 

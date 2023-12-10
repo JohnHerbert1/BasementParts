@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ObservavelBotaoDetalharProduto extends Observavel implements ActionListener {
 
-	private List<Observadora> observadores;
+	private List<Observador> observadores;
 	private ActionEvent cliqueDoBotao;
 	
 	public ActionEvent getCliqueDoBotao() {
@@ -17,32 +17,26 @@ public class ObservavelBotaoDetalharProduto extends Observavel implements Action
 	public ObservavelBotaoDetalharProduto() {
 		observadores = new ArrayList<>();
 	}
-	
-	@Override
-	public void adicionar(Observadora observadora) {
-		observadores.add(observadora);
+
+	public void adicionar(Observador observador) {
+		observadores.add(observador);
 	}
 
-	@Override
-	public void remover(Observadora observadora) {
-		int indice = observadores.indexOf(observadora);
+	public void remover(Observador observador) {
+		int indice = observadores.indexOf(observador);
 		if (indice < observadores.size()) {
-			observadores.remove(observadora);
+			observadores.remove(observador);
 		}
 	}
-
+	
 	@Override
 	public void notificar() {
-		for (Observadora observadora : observadores) {
-			// if (cliqueDoBotao.getSource())	// Como notificar o clique do botão?
-				observadora.atualizar();
-		}
+		
+//		for (Observador observador : observadores) {
+//			observador.atualizar();
+//		}
 	}
 	
-	// public void atualizarInformacoes() {
-	// 	notificar();
-	// }	// Comentei porque não sei se o método é necessário.
-
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		cliqueDoBotao = (ActionEvent) evento.getSource();

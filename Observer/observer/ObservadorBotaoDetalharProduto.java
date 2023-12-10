@@ -3,7 +3,7 @@ package observer;
 import view.TelaDetalharProduto;
 import view.TelaListagemProdutos;
 
-public class ObservadorBotaoDetalharProduto implements Observadora {
+public class ObservadorBotaoDetalharProduto implements Observador {
 
 	private TelaListagemProdutos telaListagemProdutos;
 	

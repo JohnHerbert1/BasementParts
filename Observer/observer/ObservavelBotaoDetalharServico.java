@@ -5,11 +5,11 @@ import java.awt.event.ActionListener;
 
 import view.TelaListagemServicos;
 
-public class OuvinteDetalharServico implements ActionListener {
+public class ObservavelBotaoDetalharServico implements ActionListener {
 
 	private TelaListagemServicos telaListagemServicos;
 	
-	public OuvinteDetalharServico(TelaListagemServicos telaListagemServicos) {
+	public ObservavelBotaoDetalharServico(TelaListagemServicos telaListagemServicos) {
 		this.telaListagemServicos = telaListagemServicos;
 	}
 	
