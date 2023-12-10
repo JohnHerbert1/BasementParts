@@ -1,7 +1,5 @@
 package main;
 
-import view.TelaDetalharProduto;
-
 public class Main {
 	
 	public static void main(String[] args) {
