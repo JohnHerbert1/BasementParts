@@ -5,9 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import view.TelaDetalharProduto;
+import view.TelaListagemProdutos;
+
 public class ObservavelBotaoDetalharProduto extends Observavel implements ActionListener {
 
-	private List<Observador> observadores = new ArrayList<>();
+	private List<Observador> observadores;
+	private TelaListagemProdutos telaListagemProdutos;
 	
 	public ObservavelBotaoDetalharProduto() {
 		observadores = new ArrayList<>();
@@ -33,6 +37,8 @@ public class ObservavelBotaoDetalharProduto extends Observavel implements Action
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		notificarObservadores();
+		telaListagemProdutos.dispose();
+		new TelaDetalharProduto();
 	}
 
 }

@@ -5,9 +5,13 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import view.TelaGerarRelatorio;
+import view.TelaListagemProdutos;
+
 public class ObservavelBotaoGerarRelatorioProduto extends Observavel implements ActionListener {
 
-private List<Observador> observadores = new ArrayList<>();
+	private List<Observador> observadores;
+	private TelaListagemProdutos telaListagemProdutos;
 	
 	public ObservavelBotaoGerarRelatorioProduto() {
 		observadores = new ArrayList<>();
@@ -33,6 +37,8 @@ private List<Observador> observadores = new ArrayList<>();
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		notificarObservadores();
+		telaListagemProdutos.dispose();
+		new TelaGerarRelatorio();
 	}
 
 }

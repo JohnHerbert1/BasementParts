@@ -1,21 +1,17 @@
 package observer;
 
-import view.TelaDetalharProduto;
-import view.TelaListagemProdutos;
-
 public class ObservadorBotaoGerarRelatorioProduto implements Observador {
 	
-	private TelaListagemProdutos telaListagemProdutos;
-	private ObservavelBotaoDetalharProduto estado;
+	private ObservavelBotaoGerarRelatorioProduto estado;
 	
-	public ObservadorBotaoGerarRelatorioProduto() {
+	public ObservadorBotaoGerarRelatorioProduto(ObservavelBotaoGerarRelatorioProduto estado) {
+		this.estado = estado;
 		estado.adicionarObservador(this);
 	}
 	
 	@Override
 	public void atualizar() {
-		telaListagemProdutos.dispose();
-		new TelaDetalharProduto();
+		estado.notificarObservadores();
 	}
     
 }

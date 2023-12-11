@@ -4,10 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import view.TelaGerarRelatorio;
+import view.TelaListagemServicos;
 
 public class ObservavelBotaoGerarRelatorioServico extends Observavel implements ActionListener {
 
-	private List<Observador> observadores = new ArrayList<>();
+	private List<Observador> observadores;
+	private TelaListagemServicos telaListagemServicos;
 	
 	public ObservavelBotaoGerarRelatorioServico() {
 		observadores = new ArrayList<>();
@@ -33,6 +36,8 @@ public class ObservavelBotaoGerarRelatorioServico extends Observavel implements 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		notificarObservadores();
+		telaListagemServicos.dispose();
+		new TelaGerarRelatorio();
 	}
 
 }
