@@ -12,21 +12,27 @@ public class ObservavelBotaoDetalharProduto extends Observavel implements Action
 	public ObservavelBotaoDetalharProduto() {
 		observadores = new ArrayList<>();
 	}
+	
+	@Override
+	public void adicionarObservador(Observador observador) {
+		observadores.add(observador);
+	}
+	
+	@Override
+	public void removerObservador(Observador observador) {
+		observadores.remove(observador);
+	}
 
 	@Override
-	public void notificar() {
+	public void notificarObservadores() {
 		for (Observador observador : observadores) {
 			observador.atualizar();
 		}
 	}
-	
-	public void atualizarInformações() {
-		notificar();
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
-		notificar();
+		notificarObservadores();
 	}
 
 }

@@ -7,26 +7,32 @@ import java.util.List;
 
 public class ObservavelBotaoDetalharServico extends Observavel implements ActionListener {
 
-private List<Observador> observadores = new ArrayList<>();
+	private List<Observador> observadores;
 	
 	public ObservavelBotaoDetalharServico() {
 		observadores = new ArrayList<>();
 	}
+	
+	@Override
+	public void adicionarObservador(Observador observador) {
+		observadores.add(observador);
+	}
+	
+	@Override
+	public void removerObservador(Observador observador) {
+		observadores.remove(observador);
+	}
 
 	@Override
-	public void notificar() {
+	public void notificarObservadores() {
 		for (Observador observador : observadores) {
 			observador.atualizar();
 		}
 	}
-	
-	public void atualizarInformações() {
-		notificar();
-	}
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
-		notificar();
+		notificarObservadores();
 	}
 
 }

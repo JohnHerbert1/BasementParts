@@ -9,7 +9,7 @@ public class ObservadorBotaoDetalharServico implements Observador {
 	private ObservavelBotaoDetalharProduto estado;
 	
 	public ObservadorBotaoDetalharServico() {
-		estado.adicionar(this);
+		estado.adicionarObservador(this);
 	}
 	
 	@Override
