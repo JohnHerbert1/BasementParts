@@ -9,7 +9,7 @@ public class ObservavelBotaoDetalharProduto extends Observavel implements Action
 
 	private List<Observador> observadores;
 	private ActionEvent cliqueDoBotao;
-	
+
 	public ActionEvent getCliqueDoBotao() {
 		return cliqueDoBotao;
 	}
@@ -18,29 +18,18 @@ public class ObservavelBotaoDetalharProduto extends Observavel implements Action
 		observadores = new ArrayList<>();
 	}
 
-	public void adicionar(Observador observador) {
-		observadores.add(observador);
-	}
-
-	public void remover(Observador observador) {
-		int indice = observadores.indexOf(observador);
-		if (indice < observadores.size()) {
-			observadores.remove(observador);
-		}
-	}
-	
 	@Override
 	public void notificar() {
-		
-//		for (Observador observador : observadores) {
-//			observador.atualizar();
-//		}
+		for (Observador observador : observadores) {
+			observador.atualizar();
+		}
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 		cliqueDoBotao = (ActionEvent) evento.getSource();
 		notificar();
+		
 	}
 
 }

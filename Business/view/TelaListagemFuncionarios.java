@@ -14,6 +14,7 @@ import bd.Persistencia;
 import dao.OrdemServicoDAO;
 import dto.OrdemServiceDTO;
 import observer.ObservavelBotaoDetalharFuncionario;
+import observer.ObservavelBotaoGerarRelatorioFuncionario;
 
 public class TelaListagemFuncionarios extends TelaPadrao {
 	
@@ -35,6 +36,8 @@ public class TelaListagemFuncionarios extends TelaPadrao {
 		JButton btnGerarRelatorio = new JButton("Gerar Relatório");
 		btnGerarRelatorio.setBounds(550, 595, 180, 80);
 		btnGerarRelatorio.setFont(new Font("Arial", Font.BOLD, 18));
+		ObservavelBotaoGerarRelatorioFuncionario observavelGerarRelatorio = new ObservavelBotaoGerarRelatorioFuncionario();
+		btnGerarRelatorio.addActionListener(observavelGerarRelatorio);
 		add(btnGerarRelatorio);
 	}
 

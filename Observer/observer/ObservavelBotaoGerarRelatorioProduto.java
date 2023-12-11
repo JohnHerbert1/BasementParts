@@ -2,18 +2,33 @@ package observer;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import view.TelaListagemProdutos;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ObservavelBotaoGerarRelatorioProduto implements ActionListener {
+public class ObservavelBotaoGerarRelatorioProduto extends Observavel implements ActionListener {
 
-	private TelaListagemProdutos telaListagemProdutos;
-	
-	public ObservavelBotaoGerarRelatorioProduto(TelaListagemProdutos telaListagemProdutos) {
-		this.telaListagemProdutos = telaListagemProdutos;
+	private List<Observador> observadores;
+	private ActionEvent cliqueDoBotao;
+
+	public ActionEvent getCliqueDoBotao() {
+		return cliqueDoBotao;
 	}
-	
+
+	public ObservavelBotaoGerarRelatorioProduto() {
+		observadores = new ArrayList<>();
+	}
+
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void notificar() {
+		for (Observador observador : observadores) {
+			observador.atualizar();
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent evento) {
+		cliqueDoBotao = (ActionEvent) evento.getSource();
+		notificar();
 		
 	}
 
