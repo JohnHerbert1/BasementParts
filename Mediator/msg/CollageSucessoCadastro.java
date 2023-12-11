@@ -8,9 +8,16 @@ public class CollageSucessoCadastro extends MsgCollage {
 		super(m);
 	}
 
+
 	@Override
-	public void receberMsg(Object o, String msg) {
-		JOptionPane.showMessageDialog(null, o.toString() + "Sucesso ao Cadastrar");
+	public void catchMsg(Object objectMsg, String dadosString) {
+		JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso","Sucesso",JOptionPane.YES_OPTION);
+
+	}
+
+	@Override
+	public boolean catchResponsability(String truer) {
+		return true;
 	}
 
 }

@@ -6,65 +6,43 @@ import dto.AdmDTO;
 
 public class AdmDAO implements CrudADM<AdmDTO>{
 
-	ArrayList<AdmDTO> allAdms= new ArrayList<AdmDTO>();
-	protected AdmBD admBD;
+	ArrayList<AdmDTO> allAdms;
 	
 	public AdmDAO() {
-		
-		admBD= new AdmBD();
+		this.allAdms = new ArrayList<>();
 	}
 
 	@Override
 	public boolean save(AdmDTO elemento) throws Exception {
 		
-		if(read(elemento)==false) {
+		if(allAdms.size() > 0) {
 			throw new Exception();
 		}
 		allAdms.add(elemento);
-		admBD.salvar(allAdms);
 		return false;
 	}
 
 
-	
+
 	@Override
 	public boolean update() throws Exception {
 		return false;
 	}
 
 	@Override
-	public boolean delect(AdmDTO elemento) throws Exception {
+	public boolean delect() throws Exception {
 		return allAdms.remove(0) != null;
 	}
 
-	public boolean procurar(AdmDTO dto) {
-		
-		for(int i= 0; i< allAdms.size(); i++) {
-			
-			if (allAdms.get(i).equals(dto)) {
-				
+	@Override
+	public boolean read(AdmDTO elemento) {
+			for(AdmDTO adm : allAdms) {
+				if(adm.geteMail().equals(elemento.geteMail()) & adm.getSenha().equals(elemento.getSenha())) {
 				return true;
+				}
 			}
-		}
-		
-		return false;
+			return false;
 	}
 
-	@Override
-	public ArrayList<AdmDTO> getList() {
-		
-		return allAdms;
-	}
 
-	@Override
-	public boolean read(AdmDTO admDTO){
-		
-		for(int i = 0; i <allAdms.size();i++) {
-			if(allAdms.get(i).geteMail() == admDTO.geteMail()) {
-				return true;
-			}
-		}
-		return false;
-	}
-	
 }

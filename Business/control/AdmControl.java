@@ -8,29 +8,32 @@ import model.AdmModel;
 public class AdmControl {
 
 	private static volatile AdmControl istanci;//VOU VER SE E REALMENTE NESSESARIO COMO TUDO VAI SER LIGADO NO FACEDE ACHO EU QUE SO SERA NESSERAI TER O SINGLETON LÁ E CLARO NA FABRICA
-	protected AdmModel ADMModel;
+	protected AdmModel adiministradorModel;
 	protected View view; 
 	
-	public void saveControll(AdmDTO dto) {
-		
-		ADMModel.serviceConnectSave(dto);
-		
+	public AdmControl() {//ESTOU FAZENDO ASSIM PRA FUNCIONAR COMO AGREGAÇÃO
+		adiministradorModel = new AdmModel();
 	}
 	
-	public boolean procurarControll(AdmDTO admDTO) {
-		
-		return ADMModel.connectProcurar(admDTO);
-	}
-	public AdmControl(AdmModel model) {//ESTOU FAZENDO ASSIM PRA FUNCIONAR COMO AGREGAÇÃO
-		this.ADMModel = model;
-	}
-	
-	//EXEMPLO DE COMO APLICA O SINGLETON:------------------------------------------------
-	public static synchronized AdmControl getAdmControl(AdmModel model) {	
+	public static synchronized AdmControl getAdmControl() {	
 		if(istanci == null) {
-		return	istanci = new AdmControl(model);
+			return	istanci = new AdmControl();
 		}
 		return istanci;
 	}
+	
+	public void saveControll(AdmDTO dto) {
+		adiministradorModel.serviceConnectSave(dto);
+	}
+	
+	public boolean isLogin(AdmDTO dto) {
+		return adiministradorModel.serviceConnectIsLogin(dto);
+	}
+	
+	public void delect() {
+		adiministradorModel.serviceConnectDelet();
+	}
+		
+	//EXEMPLO DE COMO APLICA O SINGLETON:------------------------------------------------
 	
 }

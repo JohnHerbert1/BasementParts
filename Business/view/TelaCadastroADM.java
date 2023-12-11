@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -16,16 +17,21 @@ import javax.swing.JTextField;
 
 import control.AdmControl;
 import dto.AdmDTO;
+import fabricas.Button;
+import fabricas.CriarImagem;
+import fabricas.Fabrica;
+import fabricas.Texto;
+import fabricas.iLabel;
 import model.AdmModel;
 
 public class TelaCadastroADM extends TelaPadrao{
 
 	
-	private AdmControl admControl;
-	private AdmModel admModel;
+	private AdmControl admControl = AdmControl.getAdmControl();
 	private JButton botaoCadastrar;
 	private JTextField email;
 	private JTextField senha;
+	private JButton fechar;
 	
 	
 	public TelaCadastroADM() {
@@ -45,9 +51,8 @@ public class TelaCadastroADM extends TelaPadrao{
 	public void textEmail() {
 
 		
-		email= new JTextField();
-		email.setBounds(250, 310, 400, 35);
-		email.setVisible(true);
+		Texto texto = Texto.getTexto();
+		email= texto.produzir("", 250, 310, 400, 35);
 		
 		email.addFocusListener(new FocusListener() {
 			
@@ -72,11 +77,9 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void textSenha() {
-
 		
-		senha= new JTextField();
-		senha.setBounds(250, 390, 400, 35);
-		senha.setVisible(true);
+		Texto texto= Texto.getTexto();
+		senha= texto.produzir("", 250, 390, 400, 35);
 		
 		senha.addFocusListener(new FocusListener() {
 			
@@ -101,61 +104,48 @@ public class TelaCadastroADM extends TelaPadrao{
 	}
 	
 	public void labelEmail() {
-
-	
-		JLabel label= new JLabel("E-mail:");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label.setBounds(140, 320, 200, 20);
-		label.setVisible(true);
+		
+		iLabel labelS= iLabel.getLabel();
+		JLabel label= labelS.produzir("E-mail: ", 140, 320, 200, 20);
 		add(label);
 	}
 	
 	public void labelSenha() {
 
-		
-		JLabel label= new JLabel("Senha: ");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		label.setBounds(138, 400, 200, 20);
-		label.setVisible(true);
+			
+		iLabel labelS= iLabel.getLabel();
+		JLabel label= labelS.produzir("Senha: ", 138, 400, 200, 20);
 		add(label);
 	}
 	
 	public void criarImagen() {
-
 		
-		ImageIcon imagem= new ImageIcon("Business/Imagens/iconBasementParts.png", "");
-		Image nova= imagem.getImage();
-		Image newimg = nova.getScaledInstance(150, 150,java.awt.Image.SCALE_SMOOTH);
-		imagem= new ImageIcon(newimg);
+		CriarImagem i= CriarImagem.getCriarImagem();
+		ImageIcon imagem= i.produzir("Business/Imagens/iconBasementParts.png", 150, 150, 0, 0);
 		
-		JLabel logo= new JLabel("");
-		logo.setBounds(380, 70, 150, 150);
+		iLabel label= iLabel.getLabel();
+		JLabel logo= label.produzir("", 380, 70, 150, 150);
 		logo.setIcon(imagem);
-		logo.setVisible(true);
 		add(logo);
 		
 	}
 	
 	public void botao() {
-
-	
 		
-		botaoCadastrar = new JButton("Cadastrar");
-		botaoCadastrar.setBounds(330, 450, 100, 50);
-		botaoCadastrar.setVisible(true);
+		Button botao= Button.getButton();
+		botaoCadastrar = botao.produzir("Cadastrar",330, 450, 100, 50);
 		add(botaoCadastrar);
 			
-		JButton fechar= new JButton("Voltar");
-		fechar.setBounds(480, 450, 100, 50);
-		fechar.setVisible(true);
+		
+		
+		Button botaoF= Button.getButton();
+		fechar= botaoF.produzir("Voltar", 480, 450, 100, 50);
 		add(fechar);
 		
 	}
 	
 	public void ouvinteCadastrar() {
 
-		admModel= new AdmModel();
-		admControl= AdmControl.getAdmControl(admModel);
 		
 		botaoCadastrar.addActionListener(new ActionListener() {
 
@@ -164,7 +154,7 @@ public class TelaCadastroADM extends TelaPadrao{
 				String textEmail = email.getText();
 				String textSenha= senha.getText();
 				
-				if(!textEmail.equals("") && !textSenha.equals("")) {// pq email esta apagando as informações ? consertar depois
+				if(!textEmail.equals("") && !textSenha.equals("")) {
 					
 					admControl.saveControll(new AdmDTO(textEmail, textSenha));
 					JOptionPane.showMessageDialog(null, "Seja Bem Vindo", "", JOptionPane.OK_OPTION);
@@ -178,6 +168,13 @@ public class TelaCadastroADM extends TelaPadrao{
 			}
 		});
 		
+		fechar.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+				dispose();
+			}
+		});
 	}
 	
 	

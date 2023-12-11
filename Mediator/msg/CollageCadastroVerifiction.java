@@ -11,28 +11,31 @@ public class CollageCadastroVerifiction extends MsgCollage {
 		super(m);
 	}
 
+
 	@Override
-	public void receberMsg(Object objectMsg,String dados) {
-		eMailMsg(dados);
-	}	
-	
-	
-	
-	private boolean emailValidatorP(String email){
+	public void catchMsg(Object objectMsg, String dadosString) {
+		JOptionPane.showMessageDialog(null, "Email nao qualificado ao Cadastro precisa ter {@} {.com}","Erro",JOptionPane.ERROR_MESSAGE);
+	}
+
+
+	public static boolean emailValidatorP(String email){
 		
 		 String regx = "^(.+)@(.+)$";
 		 Pattern pattern = Pattern.compile(regx);
 		 Matcher matcher = pattern.matcher(email);
 		 
-      return matcher.matches();
-  }
+     return matcher.matches();
+ }
 
-	private void eMailMsg(String email) {
-		if(emailValidatorP(email)) {
-			JOptionPane.showMessageDialog(null, "Email nao valido, veja se tem {@} ou {.com}");
-		}
-	}
 	
+	@Override
+	public boolean catchResponsability(String email) {
+		if(emailValidatorP(email) == false) { 
+			return false;
+		}
+		return true;
+	}
+
 	
 	
 }
