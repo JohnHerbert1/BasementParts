@@ -3,9 +3,14 @@ package observer;
 import view.TelaDetalharProduto;
 import view.TelaListagemProdutos;
 
-public class ObservadorBotaoDetalharProduto implements Observador {
+public class ObservadorlBotaoDetalharProduto implements Observador {
 
 	private TelaListagemProdutos telaListagemProdutos;
+	private ObservavelBotaoDetalharProduto estado;
+	
+	public ObservadorlBotaoDetalharProduto() {
+		estado.adicionar(this);
+	}
 	
 	@Override
 	public void atualizar() {

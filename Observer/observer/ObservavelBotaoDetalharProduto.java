@@ -7,13 +7,8 @@ import java.util.List;
 
 public class ObservavelBotaoDetalharProduto extends Observavel implements ActionListener {
 
-	private List<Observador> observadores;
-	private ActionEvent cliqueDoBotao;
-
-	public ActionEvent getCliqueDoBotao() {
-		return cliqueDoBotao;
-	}
-
+	private List<Observador> observadores = new ArrayList<>();
+	
 	public ObservavelBotaoDetalharProduto() {
 		observadores = new ArrayList<>();
 	}
@@ -24,12 +19,14 @@ public class ObservavelBotaoDetalharProduto extends Observavel implements Action
 			observador.atualizar();
 		}
 	}
+	
+	public void atualizarInformações() {
+		notificar();
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
-		cliqueDoBotao = (ActionEvent) evento.getSource();
 		notificar();
-		
 	}
 
 }

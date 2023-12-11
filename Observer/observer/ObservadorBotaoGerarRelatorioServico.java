@@ -1,5 +1,21 @@
 package observer;
 
-public class ObservadorBotaoGerarRelatorioServico {
+import view.TelaDetalharProduto;
+import view.TelaListagemProdutos;
+
+public class ObservadorBotaoGerarRelatorioServico implements Observador {
+	
+	private TelaListagemProdutos telaListagemProdutos;
+	private ObservavelBotaoDetalharProduto estado;
+	
+	public ObservadorBotaoGerarRelatorioServico() {
+		estado.adicionar(this);
+	}
+	
+	@Override
+	public void atualizar() {
+		telaListagemProdutos.dispose();
+		new TelaDetalharProduto();
+	}
 
 }

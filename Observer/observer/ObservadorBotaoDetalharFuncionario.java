@@ -1,18 +1,21 @@
 package observer;
 
-import view.TelaDetalharFuncionario;
-import view.TelaListagemFuncionarios;
+import view.TelaDetalharProduto;
+import view.TelaListagemProdutos;
 
 public class ObservadorBotaoDetalharFuncionario implements Observador {
 
-    private TelaListagemFuncionarios telaListagemFuncionarios;
-    private Observavel observavel;
-
+	private TelaListagemProdutos telaListagemProdutos;
+	private ObservavelBotaoDetalharProduto estado;
+	
+	public ObservadorBotaoDetalharFuncionario() {
+		estado.adicionar(this);
+	}
+	
 	@Override
-    public void atualizar() {
-		telaListagemFuncionarios.dispose();
-		new TelaDetalharFuncionario();
-		
-    }
+	public void atualizar() {
+		telaListagemProdutos.dispose();
+		new TelaDetalharProduto();
+	}
    
 }
